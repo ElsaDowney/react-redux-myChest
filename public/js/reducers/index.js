@@ -1,8 +1,8 @@
 const combineReducers = require('redux').combineReducers;
-const name = require('./reducer');
+const clothesReducer = require('./clothes-reducer');
 
 const appReducer = combineReducers({
-  name
+  clothesReducer
 });
 
 export default appReducer;
