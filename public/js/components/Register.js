@@ -1,6 +1,6 @@
-import React, {Components} from 'react'
+import React, {Component} from 'react'
 
-class Register extends Components {
+class Register extends Component {
 
   render() {
     return <div>注册</div>

@@ -10,3 +10,6 @@ export default store => next => action => {
   else
     next(action);
 };
+
+
+//此代码为原例子代码
