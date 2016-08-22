@@ -8,4 +8,3 @@ describe('reducer', function () {
     expect(reducer(state, action)).to.be.deep.equal({value: 'world'});
   });
 });
-
