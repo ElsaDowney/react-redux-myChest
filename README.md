@@ -1,25 +1,23 @@
-#衣搭搭
-
-[![Build Status](https://travis-ci.org/michaelliao/openweixin.svg?branch=master)](https://travis-ci.org/Manage-Chest/react-redux-myChest)
+#衣搭搭[![Build Status](https://travis-ci.org/michaelliao/openweixin.svg?branch=master)](https://travis-ci.org/Manage-Chest/react-redux-myChest)
 
 请按以下步骤运行：
-
-安装editorconfig插件
 ```
-1. clone
+1. 编辑器安装editorconfig插件
 ```
 ```
-2. npm install
+2. clone
 ```
 ```
-3. npm run webpack
+3. cnpm i
 ```
 ```
-4. npm start
-```
-##  测试
+4. npm run webpack
 ```
 ```
-    npm test
+5. npm start
 ```
 ```
+6. npm test
+```
+```
+7. 提交代码前运行npm run eslint检查代码格式
