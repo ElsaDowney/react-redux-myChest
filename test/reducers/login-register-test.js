@@ -2,6 +2,7 @@ const reducer = require('../../public/js/reducers/RegisterAndLogin-reducer');
 const expect = require('chai').expect;
 
 describe('RegisterAndLogin-reducer', function () {
+
   it('toggle to Login', function () {
     const state = {toggle: 'Login'};
     const action = {type: "Toggle", value: 'Login'};
