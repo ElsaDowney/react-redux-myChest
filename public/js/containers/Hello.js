@@ -9,7 +9,7 @@ Value.propTypes = {
 
 const mapStateToProps = (state)=> {
   return {
-    value: state.value
+    value: state.name.value
   };
 };
 
