@@ -9,7 +9,7 @@ RegisterAndLogin.propTypes = {
 
 const mapStateToProps = (state)=> {
   return {
-    toggle: state.toggle
+    toggle: state.registerAndLogin.toggle
   };
 };
 
