@@ -187,5 +187,5 @@ fabric.properties
 
 .idea
 
-
+.jshintrc
 public/dist/

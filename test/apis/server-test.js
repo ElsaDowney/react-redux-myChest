@@ -20,14 +20,13 @@ describe('server', () => {
       const collection = db.collection('users');
       collection.removeMany({});
       db.close();
-    })
+    });
   });
 
-  it('responds to /hello', function testSlash() {
+  it('responds to /hello', function testSlash(done) {
     request(server)
       .get('/hello')
-      .expect(200, '"world"');
-
+      .expect(200, done);
   });
 
   it('404 everything else', function testPath(done) {
