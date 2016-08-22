@@ -1,6 +1,5 @@
-const findData = require('../dbs/find-from-db');
-
 const express = require('express');
+const findData = require('../dbs/find-from-db');
 
 const router = express.Router();
 
