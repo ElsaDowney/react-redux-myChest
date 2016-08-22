@@ -7,4 +7,4 @@ before_script:
   - sleep 15
   - mongo mydb_test --eval 'db.addUser("customers", "hello");'
     notifications:
-      webhooks: 「https://excellence-girls.bearychat.com/messages」
+      webhooks: https://excellence-girls.bearychat.com/messages
