@@ -1,6 +1,6 @@
 #衣搭搭
 
-[![Build Status](https://travis-ci.org/michaelliao/openweixin.svg?branch=master)]()
+[![Build Status](https://travis-ci.org/michaelliao/openweixin.svg?branch=master)](https://travis-ci.org/Manage-Chest/react-redux-myChest)
 
 请按以下步骤运行：
 
