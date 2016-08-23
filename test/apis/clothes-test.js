@@ -24,7 +24,7 @@ describe('server', () => {
     server = require('../../server');
   });
 
-  it('responds to /clothes', function testSlash(done) {
+  it('return clothes of responds to /clothes', function testSlash(done) {
     request(server)
       .get('/clothes')
       .expect(200,[
@@ -33,7 +33,7 @@ describe('server', () => {
       ], done);
   });
 
-  it('responds to /clothes/1', function testPath(done) {
+  it('return deleted clothes of responds to /clothes/1', function testPath(done) {
     request(server)
       .del('/clothes/1')
       .expect(201, done);

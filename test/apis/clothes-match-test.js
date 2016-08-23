@@ -8,22 +8,16 @@ describe('server', () => {
   beforeEach(function () {
     mongoClient.connect(url, (err, db)=> {
       const collection = db.collection('users');
-      collection.insert([{hello: "world"}], (err, result)=> {
+      collection.removeMany({},()=>{
+        collection.insert([{hello: "world"}], (err, result)=> {
+        });
+        db.close();
       });
-      db.close();
     });
     server = require('../../server');
   });
 
-  afterEach(function () {
-    mongoClient.connect(url, (err, db)=> {
-      const collection = db.collection('users');
-      collection.removeMany({});
-      db.close();
-    });
-  });
-
-  it('matchSuccess', function testPath(done) {
+  it('return matchSucced clothes of /clothes/match', function testPath(done) {
     request(server)
       .post('/clothes/match')
       .expect(200, done);
