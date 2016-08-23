@@ -4,8 +4,20 @@ export default store => next => action => {
   if (action.type === 'GETCLOTHES') {
     request.get('/clothes')
       .end((err, res) => {
-        next({type: action.type, clothes: res.body.clo_list});
+        console.log(res)
+        next({type: action.type, clothes: res.body});
       });
+  } else if (action.type === "DELETECLOTH") {
+    request.del('/clothes/' + action.c_id)
+      .end((err,res)=>{
+        next({type:"GETCLOTHES",clothes:res.body})
+    });
+  }else if(action.type === "MATCHCLOTHES"){
+    request.post('/clothes/match')
+      .send(action.matches)
+      .end((err,res)=>{
+        next({type:""})
+      })
   }
   else
     next(action);
