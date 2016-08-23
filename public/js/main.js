@@ -13,7 +13,9 @@ import Home from "./components/Home";
 import RegisterAndLogin from './containers/RegisterAndLogin';
 import RegisterLogin from './middlewares/register-login';
 
-const createStoreWithMiddleware = applyMiddleware(getValue,clothes,RegisterLogin)(createStore);
+import register from './middlewares/register'
+
+const createStoreWithMiddleware = applyMiddleware(getValue,clothes,RegisterLogin,register)(createStore);
 
 const store = createStoreWithMiddleware(reducer);
 

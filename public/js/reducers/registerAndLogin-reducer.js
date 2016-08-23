@@ -1,6 +1,6 @@
 function reducer(state = {toggle: 'Login'}, action) {
   switch (action.type) {
-    case "Toggle":
+    case "TOGGLE":
       return {
         toggle: action.value
       };
