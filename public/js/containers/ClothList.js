@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import ClothList from "../components/ClothList";
 
 function mapStateToProps(state){
+  // console.log(state);
   return {
     clothes:state.clothesReducer.clothes
   };

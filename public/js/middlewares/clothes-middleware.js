@@ -4,6 +4,7 @@ export default store => next => action => {
   if (action.type === 'GETCLOTHES') {
     request.get('/clothes')
       .end((err, res) => {
+        console.log(res)
         next({type: action.type, clothes: res.body});
       });
   } else if (action.type === "DELETECLOTH") {
@@ -21,5 +22,3 @@ export default store => next => action => {
   else
     next(action);
 };
-
-
