@@ -3,6 +3,8 @@ import React, {Component} from 'react'
 class Register extends Component {
 
   commit() {
+    console.log(this.props.registerState);
+    console.log("hehe")
     const username = this.refs.myName.value;
     const password = this.refs.myPassword.value;
     const repeatPassword = this.refs.repeatPassword.value;
@@ -14,7 +16,14 @@ class Register extends Component {
       }
       else {
 
-         this.props.onCommit(username, password);
+        this.props.onCommit(username, password);
+        if (this.props.registerState === 'success') {
+          alert('注册成功');
+        }
+        else {
+          alert('用户已存在');
+        }
+
 
         // if (this.props.registerState === 'success') {
         //   alert('注册成功');
@@ -81,4 +90,5 @@ class Register extends Component {
 
 
 export default Register;
+
 

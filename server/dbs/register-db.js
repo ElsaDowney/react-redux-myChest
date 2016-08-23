@@ -4,8 +4,8 @@ const MongoClient = require('../helpers/mongodb');
 
 exports.register = function (data, callback) {
 
-  var insertData = function (db, callback) {
-    const collection = db.collection('clothes');
+  var insertData = function (data,db, callback) {
+    const collection = db.collection('users');
     collection.insert(data, function (err, result) {
       if (err) {
         console.log('Error:' + err);
@@ -16,8 +16,8 @@ exports.register = function (data, callback) {
   };
 
   var selectData = function (db, callback) {
-    const collection = db.collection('clothes');
-    collection.find({userName: data.userName}).toArray(function (err, result) {
+    const collection = db.collection('users');
+    collection.find({username: data.username}).toArray(function (err, result) {
       if (err) {
         console.log('Error:' + err);
         return;
@@ -29,8 +29,12 @@ exports.register = function (data, callback) {
   MongoClient.connect(url, function (err, db) {
 
     selectData(db, function (result) {
+
+      console.log(result);
+
       if (result.length === 0) {
-        insertData(db, function (result) {
+        insertData(data,db, function (result) {
+
           callback(result);
         });
       }

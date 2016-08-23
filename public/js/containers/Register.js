@@ -2,21 +2,23 @@ import React, {Component, PropTypes} from "react";
 import {connect} from "react-redux";
 import Register from "../components/Register";
 
-// Register.propTypes = {
-//   registerState: PropTypes.string.isRequired,
-//   onCommit: PropTypes.func.isRequired
-// };
+Register.propTypes = {
+  registerState: PropTypes.string.isRequired,
+  onCommit: PropTypes.func.isRequired
+};
 
 const mapStateToProps = (state)=> {
+  console.log(state.registerReducer.registerState);
+
   return {
-    registerState: state.registerState
+    registerState: state.registerReducer.registerState
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     onCommit: (username, password)=> {
-      // console.log({type: "REGISTER_COMMIT", username, password});
+
 
       dispatch({type: "REGISTER_COMMIT", username, password});
     }
