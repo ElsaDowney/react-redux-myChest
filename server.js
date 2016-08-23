@@ -4,9 +4,12 @@ const regRouters = require('./server/routers');
 
 const app = new express();
 
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('./public'));
+// const  register=require('./server/routers/register')
+// app.use('/',register);
 
 regRouters(app);
 
