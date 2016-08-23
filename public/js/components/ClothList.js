@@ -26,6 +26,11 @@ class ClothList extends Component{
     return  clothes.find(item => item.sort === type);
   }
 
+  remove(section){
+    const c_id = section.c_id;
+    this.props.onRemove(c_id);
+  }
+
   getAllSectionWithTig(clothes){
     const sectionClothes = clothes.allSections.map((section,index) => {
       const imgUrl = `../../images/image${section.image}.jpg`;
@@ -36,7 +41,8 @@ class ClothList extends Component{
                onMouseOver={this.mouseOver}
                onMouseOut={this.mouseOut}/>
           <div className="delete-wrap">
-            <span className="glyphicon glyphicon-trash delete">
+            <span className="glyphicon glyphicon-trash delete"
+                  onClick={this.remove.bind(this,section)}>
             </span>
           </div>
           <div className="select">
@@ -62,6 +68,7 @@ class ClothList extends Component{
       </div>
     )
   }
+
 
 
 

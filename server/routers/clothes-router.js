@@ -14,7 +14,9 @@ router.get('/clothes', (req, res)=> {
 
 
 router.delete("/clothes/:c_id",(req,res)=>{
-  res.status(201).end();
+  clothes.deleteOneClothes("xiaopangzhu",req.params.c_id,(result)=>{
+    res.status(201).json(result.clo_list);
+  })
 });
 
 
