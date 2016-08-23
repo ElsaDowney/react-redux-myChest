@@ -14,7 +14,7 @@ const Nav = React.createClass({
               <div classID="navbar" className="navbar-collapse collapse">
                 <ul className="nav navbar-nav">
                   <li className="active"><Link to='/'>首页</Link></li>
-                  <li><Link to='#'>我的衣柜</Link></li>
+                  <li><Link to='ClothList'>我的衣柜</Link></li>
                   <li><Link to='#'>添加美衣</Link></li>
                   <li><Link to='LoginAndRegister'>我的搭配</Link></li>
                 </ul>
