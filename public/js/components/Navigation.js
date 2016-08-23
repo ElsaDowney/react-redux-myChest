@@ -6,7 +6,6 @@ const Nav = React.createClass({
     return (
       <div className="navbar-wrapper">
         <div className="container-fluid">
-
           <nav className="navbar navbar-inverse navbar-static-top ">
             <div className="container">
               <div className="navbar-header">

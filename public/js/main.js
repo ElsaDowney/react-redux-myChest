@@ -9,7 +9,7 @@ import index from "./reducers/index";
 
 import Home from "./components/Home";
 import RegisterAndLogin from './containers/RegisterAndLogin';
-import RegisterLogin from './middlewares/RegisterAndLogin';
+import RegisterLogin from './middlewares/register-login';
 
 const createStoreWithMiddleware = applyMiddleware(RegisterLogin)(createStore);
 
