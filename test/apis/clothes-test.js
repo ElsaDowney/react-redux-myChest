@@ -23,9 +23,15 @@ describe('server', () => {
     });
   });
 
+  it('responds to /hello', function testSlash(done) {
+    request(server)
+      .get('/clothes')
+      .expect(200, done);
+  });
+
   it('404 everything else', function testPath(done) {
     request(server)
-      .get('/foo/bar')
-      .expect(404, done);
+      .del('/clothes/1')
+      .expect(201, done);
   });
 });
