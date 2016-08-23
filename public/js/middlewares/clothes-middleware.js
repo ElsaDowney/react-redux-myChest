@@ -9,7 +9,6 @@ export default store => next => action => {
   } else if (action.type === "DELETECLOTH") {
     request.del('/clothes/' + action.c_id)
       .end((err,res)=>{
-        console.log(res.body);
         next({type:"GETCLOTHES",clothes:res.body})
     });
   }
