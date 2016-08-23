@@ -8,7 +8,7 @@ const router = express.Router();
 
 router.get('/clothes', (req, res)=> {
   clothes.getAllClothes("xiaopangzhu",(result)=>{
-    res.status(200).json(result);
+    res.status(200).json(result.clo_list);
    })
 });
 
