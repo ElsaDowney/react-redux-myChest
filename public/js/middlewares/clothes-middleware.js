@@ -11,6 +11,12 @@ export default store => next => action => {
       .end((err,res)=>{
         next({type:"GETCLOTHES",clothes:res.body})
     });
+  }else if(action.type === "MATCHCLOTHES"){
+    request.post('/clothes/match')
+      .send(action.matches)
+      .end((err,res)=>{
+        next({type:""})
+      })
   }
   else
     next(action);

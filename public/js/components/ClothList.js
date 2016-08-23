@@ -31,6 +31,11 @@ class ClothList extends Component{
     this.props.onRemove(c_id);
   }
 
+  addWrap(){
+    $("input:checked").parent().siblings(".img-wrap").css("display","inline");
+    $("input:not(:checked)").parent().siblings(".img-wrap").css("display","none");
+  }
+
   getAllSectionWithTig(clothes){
     const sectionClothes = clothes.allSections.map((section,index) => {
       const imgUrl = `../../images/image${section.image}.jpg`;
@@ -69,8 +74,21 @@ class ClothList extends Component{
     )
   }
 
+  matchClothes(){
+    $(".input-select").css("display","inline");
+  }
 
+  hiddenMatch(){
+    $(".input-select").css("display","none");
+  }
 
+  confirmMatch(){
+    const matches = [];
+    $("input:checked").each(function(){
+      matches.push($(this).val())
+    });
+    this.props.onMatchClothes(matches);
+  }
 
   render() {
     const allColthes = this.props.clothes;
@@ -94,8 +112,11 @@ class ClothList extends Component{
       return (
         <div className="wrap-colthes">
           {clothes}
-          <button className="btn-match btn btn-primary">搭配</button>
-          <p className="btn-foot"><button className="btn btn-info">确认搭配</button></p>
+          <button className="btn-match btn btn-primary"
+                  onClick={this.matchClothes}
+                  onDoubleClick={this.hiddenMatch}>搭配</button>
+          <p className="btn-foot"><button className="btn btn-info"
+                                          onClick={this.confirmMatch.bind(this)}>确认搭配</button></p>
           <p className="btn-foot"><button className="btn btn-info" disabled="disabled">点击添加类型</button></p>
         </div>
       )

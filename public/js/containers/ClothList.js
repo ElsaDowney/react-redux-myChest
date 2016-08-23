@@ -11,7 +11,8 @@ function mapStateToProps(state){
 function mapDispatchToProps(dispatch){
   return {
     getClothes : ()=>{dispatch({type:"GETCLOTHES"});},
-    onRemove: (c_id)=>dispatch({type:"DELETECLOTH",c_id})
+    onRemove: (c_id)=>dispatch({type:"DELETECLOTH",c_id}),
+    onMatchClothes :(matches)=>{dispatch({type:"MATCHCLOTHES",matches})}
   };
 }
 
