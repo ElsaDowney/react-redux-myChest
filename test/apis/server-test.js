@@ -23,12 +23,6 @@ describe('server', () => {
     });
   });
 
-  it('responds to /hello', function testSlash(done) {
-    request(server)
-      .get('/hello')
-      .expect(200, done);
-  });
-
   it('404 everything else', function testPath(done) {
     request(server)
       .get('/foo/bar')
