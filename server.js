@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const regRouters = require('./server/routers');
+const regRouters = require('./server/routers/index');
 
 const app = new express();
 
@@ -8,8 +8,7 @@ const app = new express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('./public'));
-// const  register=require('./server/routers/register')
-// app.use('/',register);
+
 
 regRouters(app);
 

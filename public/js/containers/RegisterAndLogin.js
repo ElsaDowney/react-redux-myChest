@@ -16,7 +16,7 @@ const mapStateToProps = (state)=> {
 const mapDispatchToProps = (dispatch) => {
   return {
     onToggle: (value)=> {
-      dispatch({type: "Toggle",value});
+      dispatch({type: "TOGGLE",value});
     }
   };
 };
