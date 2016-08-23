@@ -5,7 +5,6 @@ function reducer(state = {toggle: 'Login'}, action) {
         toggle: action.value
       };
   }
-  return state.toggle;
+  return state;
 }
-
 module.exports = reducer;

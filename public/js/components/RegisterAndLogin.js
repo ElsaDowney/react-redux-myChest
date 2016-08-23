@@ -4,11 +4,11 @@ import Login from './Login'
 import Register from './Register'
 
 class RegisterAndLogin extends Component {
-
   change(value) {
     this.props.onToggle(value);
   }
   render() {
+    
     return (
       <div id="register-login-center" >
         <div className="panel-heading">
@@ -30,7 +30,6 @@ class RegisterAndLogin extends Component {
         </div>
       </div>
     );
-
   }
 }
 
