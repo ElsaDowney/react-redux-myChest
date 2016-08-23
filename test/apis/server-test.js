@@ -5,12 +5,13 @@ const mongoClient = require('../../server/helpers/mongodb');
 describe('server', () => {
   let server;
 
-  beforeEach(function () {
+  beforeEach(function (done) {
     mongoClient.connect(url, (err, db)=> {
       const collection = db.collection('users');
       collection.removeMany({}, ()=> {
         collection.insert([{hello: "world"}], (err, result)=> {
           db.close();
+          done();
         });
       });
     });
