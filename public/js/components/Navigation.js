@@ -4,10 +4,10 @@ const Nav = React.createClass({
 
   render() {
     return (
-      <div className="navbar-wrapper">
-        <div className="container-fluid">
+      <div className="navbar-wrapper ">
+        <div className="container">
           <nav className="navbar navbar-inverse navbar-static-top ">
-            <div className="container">
+            <div className="container-fluid">
               <div className="navbar-header">
                 <a className="navbar-brand" href="#">衣搭搭</a>
               </div>
@@ -18,11 +18,9 @@ const Nav = React.createClass({
                   <li><Link to='#'>添加美衣</Link></li>
                   <li><Link to='LoginAndRegister'>我的搭配</Link></li>
                 </ul>
-
                 <ul className="nav navbar-nav navbar-right">
                   <li><Link to='RegisterAndLogin'>登陆/注册</Link></li>
                 </ul>
-
               </div>
             </div>
           </nav>
