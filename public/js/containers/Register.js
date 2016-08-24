@@ -9,7 +9,6 @@ Register.propTypes = {
 
 const mapStateToProps = (state)=> {
 
-  console.log(state.registerReducer.registerState);
   return {
     registerState: state.registerReducer.registerState
   };
@@ -18,8 +17,6 @@ const mapStateToProps = (state)=> {
 const mapDispatchToProps = (dispatch) => {
   return {
     onCommit: (username, password)=> {
-
-
       dispatch({type: "REGISTER_COMMIT", username, password});
     }
   };

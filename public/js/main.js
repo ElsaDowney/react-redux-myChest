@@ -14,7 +14,6 @@ import MatchList from './containers/matchList'
 import RegisterLogin from './middlewares/register-login';
 import matchList from "./middlewares/matchList"
 
-
 import register from './middlewares/register';
 
 const createStoreWithMiddleware = applyMiddleware(clothes,RegisterLogin,register,matchList)(createStore);
