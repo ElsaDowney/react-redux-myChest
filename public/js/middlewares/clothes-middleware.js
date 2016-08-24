@@ -1,24 +1,22 @@
 import request from 'superagent';
 
 export default store => next => action => {
-  if (action.type === 'GETCLOTHES') {
+  if (action.type === 'GET_CLOTHES') {
     request.get('/clothes')
       .end((err, res) => {
-        console.log(res)
         next({type: action.type, clothes: res.body});
       });
-  } else if (action.type === "DELETECLOTH") {
+  } else if (action.type === "DELETE_CLOTH") {
     request.del('/clothes/' + action.c_id)
-      .end((err,res)=>{
-        next({type:"GETCLOTHES",clothes:res.body})
-    });
-  }else if(action.type === "MATCHCLOTHES"){
+      .end((err, res)=> {
+        next({type: "GET_CLOTHES", clothes: res.body});
+      });
+  } else if (action.type === "MATCH_CLOTHES") {
     request.post('/clothes/match')
       .send(action.matches)
-      .end((err,res)=>{
-        next({type:""})
+      .end((err, res)=> {
+        next({type: ""})
       })
-  }
-  else
+  } else
     next(action);
 };

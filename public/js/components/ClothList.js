@@ -1,57 +1,61 @@
 import React, {Component} from "react";
 import {browserHistory} from 'react-router';
+import Home from './Home';
 const Link = require('react-router').Link;
 
-class ClothList extends Component{
-  componentDidMount(){
+class ClothList extends Component {
+  componentDidMount() {
     this.props.getClothes();
   }
 
-  mouseOver(){
-    $('.a').mouseover(function(){
-      $(this).next().css("opacity",0.7);
+  mouseOver() {
+    $('.imgage').mouseover(function () {
+      $(this).next().css("opacity", 0.7);
     });
-    $('.delete-wrap').mouseover(function(){
-      $(this).css("opacity",0.7);
-    });
-  }
-
-  mouseOut(){
-    $('.a').mouseout(function(){
-      $(this).next().css("opacity",0);
+    $('.delete-wrap').mouseover(function () {
+      $(this).css("opacity", 0.7);
     });
   }
 
-  findClothesType(type,clothes){
-    return  clothes.find(item => item.sort === type);
+  mouseOut() {
+    $('.imgage').mouseout(function () {
+      $(this).next().css("opacity", 0);
+    });
   }
 
-  remove(section){
-    const c_id = section.c_id;
-    this.props.onRemove(c_id);
+  findClothesType(type, clothes) {
+    return clothes.find(item => item.sort === type);
   }
 
-  addWrap(){
-    $("input:checked").parent().siblings(".img-wrap").css("display","inline");
-    $("input:not(:checked)").parent().siblings(".img-wrap").css("display","none");
+  remove(section) {
+    this.props.onRemove(section.c_id);
   }
 
-  getAllSectionWithTig(clothes){
-    const sectionClothes = clothes.allSections.map((section,index) => {
+  addWrap() {
+    $("input:checked").parent().siblings(".img-wrap").css("display", "inline");
+    $("input:not(:checked)").parent().siblings(".img-wrap").css("display", "none");
+  }
+
+  showAll() {
+    $(".left-clothes").css("display", "inline");
+  }
+
+  getAllSectionWithTig(clothes) {
+    const sectionClothes = clothes.allSections.map((section, index) => {
       const imgUrl = `../../images/image${section.image}.jpg`;
       return (
         <div className="imgSize" key={index}>
           <div className="img-wrap"></div>
-          <img className="a" src={imgUrl}
+          <img className="imgage" src={imgUrl}
                onMouseOver={this.mouseOver}
                onMouseOut={this.mouseOut}/>
           <div className="delete-wrap">
             <span className="glyphicon glyphicon-trash delete"
-                  onClick={this.remove.bind(this,section)}>
+                  onClick={this.remove.bind(this, section)}>
             </span>
           </div>
           <div className="select">
-            <input type="radio" name={section.sort} className="input-select"  id="select"
+            <input type="radio" name={section.sort} className="input-select" id="select"
                    value={section.c_id}
                    onClick={this.addWrap}/>
           </div>
@@ -74,54 +78,60 @@ class ClothList extends Component{
     )
   }
 
-  matchClothes(){
-    $(".input-select").css("display","inline");
+  matchClothes() {
+    $(".input-select").css("display", "inline");
   }
 
-  hiddenMatch(){
-    $(".input-select").css("display","none");
+  hiddenMatch() {
+    $(".input-select").css("display", "none");
   }
 
-  confirmMatch(){
+  confirmMatch() {
     const matches = [];
-    $("input:checked").each(function(){
+    $("input:checked").each(function () {
       matches.push($(this).val())
     });
-    this.props.onMatchClothes(matches);
+    alert("匹配成功");
+    browserHistory.push('/Home');
   }
 
   render() {
     const allColthes = this.props.clothes;
-      const clothesWithClass = [];
-      for(let clothes of allColthes){
-        const element = this.findClothesType(clothes.sort,clothesWithClass);
-        if (element) {
-          element.allSections.push(clothes)
-        }else {
-          const clothesObj = {};
-          const arr = [];
-          arr.push(clothes);
-          clothesObj.sort =clothes.sort;
-          clothesObj.allSections = arr;
-          clothesWithClass.push(clothesObj);
-        }
+    const clothesWithClass = [];
+    for (let clothes of allColthes) {
+      const element = this.findClothesType(clothes.sort, clothesWithClass);
+      if (element) {
+        element.allSections.push(clothes)
+      } else {
+        const clothesObj = {};
+        const arr = [];
+        arr.push(clothes);
+        clothesObj.sort = clothes.sort;
+        clothesObj.allSections = arr;
+        clothesWithClass.push(clothesObj);
       }
-      const clothes = clothesWithClass.map(clothes => {
-        return this.getAllSectionWithTig(clothes);
-      });
-      return (
-        <div className="wrap-colthes">
-          {clothes}
-          <button className="btn-match btn btn-primary"
-                  onClick={this.matchClothes}
-                  onDoubleClick={this.hiddenMatch}>搭配</button>
-          <p className="btn-foot"><button className="btn btn-info"
-                                          onClick={this.confirmMatch.bind(this)}>确认搭配</button></p>
-          <p className="btn-foot"><button className="btn btn-info" disabled="disabled">点击添加类型</button></p>
-        </div>
-      )
+    }
+    const clothes = clothesWithClass.map(clothes => {
+      return this.getAllSectionWithTig(clothes);
+    });
+    return (
+      <div className="wrap-colthes">
+        {clothes}
+        <button className="btn-match btn btn-primary"
+                onClick={this.matchClothes}
+                onDoubleClick={this.hiddenMatch}>搭配
+        </button>
+        <p className="btn-foot">
+          <button className="btn btn-info"
+                  onClick={this.confirmMatch.bind(this)}>确认搭配
+          </button>
+        </p>
+        <p className="btn-foot">
+          <button className="btn btn-info" disabled="disabled">点击添加类型</button>
+        </p>
+      </div>
+    )
   }
 }
-
 
 export default ClothList;

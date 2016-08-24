@@ -1,18 +1,21 @@
 const reducer = require('../../public/js/reducers/register-reducer');
-const expect = require('chai').expect;
+ const expect = require('chai').expect;
 
 describe('Register', function () {
 
-  it('success to register', function () {
+  it('changes registerState success', function () {
     const state = {registerState: ''};
     const action = {type: "REGISTER_COMMIT", value: 'success'};
+
     expect(reducer(state, action)).to.be.deep.equal({registerState: 'success'});
+
   });
 
-  it('user has exist', function () {
-    const state = {registerState: ''};
-    const action = {type: "REGISTER_COMMIT", value: 'fail'};
-    expect(reducer(state, action)).to.be.deep.equal({registerState: 'fail'});
+  it('changes registerState fail', function () {
+    const state = {registerState:''};
+    const action = {type: "REGISTER_COMMIT", value:'fail'};
+
+    expect(reducer(state, action)).to.be.deep.equal({registerState:'fail'});
   });
 
 });
