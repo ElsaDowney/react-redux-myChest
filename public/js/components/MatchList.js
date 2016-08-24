@@ -10,7 +10,7 @@ class MatchList extends Component{
     this.props.onMatch(userName);
   }
 
-  getStyle (clothes, index) {
+  getStyle(clothes, index) {
     const up = `../../images/${clothes.up.imgUp}.jpg`;
     const down = `../../images/${clothes.down.imgDown}.jpg`;
 
