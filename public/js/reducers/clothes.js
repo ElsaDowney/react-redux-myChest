@@ -1,13 +1,11 @@
-function reducer(state = {clothes: []}, action) {
+const clothes = (state = [], action) => {
   switch (action.type) {
     case "GET_CLOTHES":
-      return {
-        clothes: action.clothes
-      };
+      return state = action.clothes;
     default :
       return state;
   }
   return state;
-}
+};
 
-module.exports = reducer;
+module.exports = clothes;
