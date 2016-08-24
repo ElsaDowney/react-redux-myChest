@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {browserHistory} from 'react-router';
-import Home from './Home';
+import ClothesTypeToTig from './ClothesType-toTig'
 const Link = require('react-router').Link;
 
 class ClothList extends Component {
@@ -27,10 +27,6 @@ class ClothList extends Component {
     return clothes.find(item => item.sort === type);
   }
 
-  remove(section) {
-    this.props.onRemove(section.c_id);
-  }
-
   addWrap() {
     $("input:checked").parent().siblings(".img-wrap").css("display", "inline");
     $("input:not(:checked)").parent().siblings(".img-wrap").css("display", "none");
@@ -38,44 +34,6 @@ class ClothList extends Component {
 
   showAll() {
     $(".left-clothes").css("display", "inline");
-  }
-
-  getAllSectionWithTig(clothes) {
-    const sectionClothes = clothes.allSections.map((section, index) => {
-      const imgUrl = `../../images/image${section.image}.jpg`;
-      return (
-        <div className="imgSize" key={index}>
-          <div className="img-wrap"></div>
-          <img className="imgage" src={imgUrl}
-               onMouseOver={this.mouseOver}
-               onMouseOut={this.mouseOut}/>
-          <div className="delete-wrap">
-            <span className="glyphicon glyphicon-trash delete"
-                  onClick={this.remove.bind(this, section)}>
-            </span>
-          </div>
-          <div className="select">
-            <input type="radio" name={section.sort} className="input-select" id="select"
-                   value={section.c_id}
-                   onClick={this.addWrap}/>
-          </div>
-        </div>
-      )
-    });
-    return (
-      <div>
-        <span className="title-inline text-success">{clothes.sort}</span>
-        <Link to="AddList">
-          <button className="button button-action button-circle btn-add">
-            <i className="fa fa-plus">
-            </i>
-          </button>
-        </Link>
-        <hr />
-        {sectionClothes}
-        <hr />
-      </div>
-    )
   }
 
   matchClothes() {
@@ -91,13 +49,13 @@ class ClothList extends Component {
     $("input:checked").each(function () {
       matches.push($(this).val())
     });
-    alert("匹配成功");
+    alert("搭配成功");
     browserHistory.push('/Home');
   }
 
-  getClothesWithClass(clothes){
+  getClothesWithClass(clothes) {
     const clothesWithClass = [];
-    for (let cloth of clothes) {
+    clothes.map(cloth => {
       const element = this.findClothesType(cloth.sort, clothesWithClass);
       if (element) {
         element.allSections.push(cloth)
@@ -109,16 +67,17 @@ class ClothList extends Component {
         clothesObj.allSections = arr;
         clothesWithClass.push(clothesObj);
       }
-    }
+    });
     return clothesWithClass;
   }
 
   render() {
     const clothesWithClass = this.getClothesWithClass(this.props.clothes);
-
     const clothes = clothesWithClass.map(clothes => {
-      return this.getAllSectionWithTig(clothes);
+      return <ClothesTypeToTig clothes={clothes}
+                               onRemove={this.props.onRemove}/>;
     });
+
     return (
       <div className="wrap-colthes">
         {clothes}
