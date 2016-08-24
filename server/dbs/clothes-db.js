@@ -12,16 +12,44 @@ exports.getAllClothes = (userName, callback) => {
 };
 
 
-exports.deleteOneClothes = function(userName, c_id, callback) {
-  MongoClient.connect(url, (err, db)=>{
+
+exports.deleteOneClothes = function (userName, c_id) {
+  MongoClient.connect(url, (err, db)=> {
     const collection = db.collection('users');
     collection.update({userName: userName}, {$pull: {"clo_list": {c_id: parseInt(c_id)}}}, (err, result)=> {
       this.getAllClothes(userName, (result) => {
         callback(result);
       })
+
+      db.close();
     });
-    db.close();
-  });
+  })
 };
+
+exports.addClothItem = function (userName,cloItem,callback) {
+  MongoClient.connect(url,(err,db) => {
+    const collection = db.collection('users');
+    let middleClo_list;
+    this.getAllClothes(userName, (result) => {
+      if(result.clo_list){
+         middleClo_list = result.clo_list;
+      }else{
+        middleClo_list = [];
+      }
+
+      cloItem.id = middleClo_list.length+1
+
+
+      collection.insert({userName:userName},
+        {$push: {"clo_list":cloItem}}, (err, result)=> {
+          callback(result);
+        });
+    });
+
+
+    db.close();
+  })
+}
+
 
 

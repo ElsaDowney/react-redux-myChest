@@ -6,9 +6,15 @@ let cloItem = {
   "season": '',
   "color": [],
   "style": '',
-  "sort": ''
+  "sort": '',
+  "image":''
 }
 class ClothForm extends Component {
+
+  saveAdd(){
+    cloItem.image = this.props.image;
+    this.props.onSaveAdd(cloItem);
+  }
 
   selectSeason(e) {
     cloItem.season = e.target.value;
@@ -80,6 +86,8 @@ class ClothForm extends Component {
         </div>
 
         <Image/>
+
+        <button onClick={this.saveAdd.bind(this)}>添加</button>
 
       </div>
 

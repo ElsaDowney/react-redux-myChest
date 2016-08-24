@@ -7,7 +7,7 @@ import App from "./containers/App";
 import ClothList from './containers/ClothList';
 import reducer from "./reducers/index";
 import clothes from "./middlewares/clothes-middleware";
-import ClothForm from './components/ClothForm'
+import ClothForm from './containers/ClothFrom'
 
 
 import Home from "./components/Home";
@@ -15,6 +15,7 @@ import RegisterAndLogin from './containers/RegisterAndLogin';
 import MatchList from './containers/matchList'
 import RegisterLogin from './middlewares/register-login';
 import ImageUpload from './middlewares/image-upload'
+import SaveAdd from './middlewares/save-add-middleware'
 
 import login from './middlewares/login';
 import register from './middlewares/register';
@@ -22,8 +23,7 @@ import register from './middlewares/register';
 
 import matchList from "./middlewares/matchList"
 
-const createStoreWithMiddleware = applyMiddleware(clothes,RegisterLogin,register,login,matchList,ImageUpload)(createStore);
-import ClothForm from './containers/ClothForm'
+const createStoreWithMiddleware = applyMiddleware(clothes,RegisterLogin,register,login,matchList,ImageUpload,SaveAdd)(createStore);
 
 
 const store = createStoreWithMiddleware(reducer);

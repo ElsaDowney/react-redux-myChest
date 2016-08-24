@@ -9,7 +9,6 @@ router.put('/upload', function(req, res){
   req.busboy.on("file", function(fieldName, file,name){
 
     var imageName = fieldName+ name;
-    console.log(imageName);
     var path = __dirname + "/../../public/images/" + imageName;
     var writeStream = require('fs').createWriteStream(path)
 

@@ -5,8 +5,11 @@ export default store => next => action => {
     request.put('/upload')
       .attach("image-name",action.imageFile,action.imageFile.name)
       .end((err, res) => {
-        console.log(res.body);
-        console.log(typeof res.body);
+        if(err){
+          console.log(err);
+        }else{
+          alert('图片上传成功！');
+        }
         next({type: 'UPLOADIMAGE', imageName: res.body});
       });
   }
