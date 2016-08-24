@@ -11,10 +11,10 @@ import clothes from "./middlewares/clothes-middleware";
 import Home from "./components/Home";
 import RegisterAndLogin from './containers/RegisterAndLogin';
 import RegisterLogin from './middlewares/register-login';
-
+import login from './middlewares/login';
 import register from './middlewares/register';
 
-const createStoreWithMiddleware = applyMiddleware(clothes,RegisterLogin,register)(createStore);
+const createStoreWithMiddleware = applyMiddleware(clothes,RegisterLogin,register,login)(createStore);
 
 const store = createStoreWithMiddleware(reducer);
 
