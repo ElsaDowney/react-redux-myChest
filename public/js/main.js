@@ -6,7 +6,6 @@ import {Router, Route, IndexRoute, browserHistory} from 'react-router';
 import App from "./containers/App";
 import ClothList from './containers/ClothList';
 import reducer from "./reducers/index";
-import getValue from "./middlewares/get-value";
 import clothes from "./middlewares/clothes-middleware";
 
 import Home from "./components/Home";
@@ -15,7 +14,10 @@ import MatchList from './containers/matchList'
 import RegisterLogin from './middlewares/register-login';
 import matchList from "./middlewares/matchList"
 
-const createStoreWithMiddleware = applyMiddleware(getValue,clothes,RegisterLogin,matchList)(createStore);
+
+import register from './middlewares/register';
+
+const createStoreWithMiddleware = applyMiddleware(clothes,RegisterLogin,register,matchList)(createStore);
 
 const store = createStoreWithMiddleware(reducer);
 

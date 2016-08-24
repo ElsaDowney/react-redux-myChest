@@ -4,7 +4,7 @@
 	"license": "ISC",
 	"main": "server.js",
 	"scripts": {
-		"test": "export NODE_ENV=test && mocha test/**/*test.js",
+		"test": "export NODE_ENV=test && mocha --compilers js:babel-core/register test/**/*test.js",
 		"start": "export NODE_ENV=development && nodemon server.js",
 		"webpack": "webpack -d --watch",
 		"wpw": "webpack -w",
@@ -21,6 +21,7 @@
 		"bootstrap": "^3.3.7",
 		"express": "^4.14.0",
 		"mongodb": "^2.2.7",
+		"path": "^0.12.7",
 		"react": "^15.3.0",
 		"react-dom": "^15.3.0",
 		"react-redux": "^4.4.5",

@@ -10,7 +10,8 @@ function mapStateToProps(state){
 
 function mapDispatchToProps(dispatch){
   return {
-    getClothes : ()=>{dispatch({type:"GETCLOTHES"});}
+    getClothes : ()=>{dispatch({type:"GETCLOTHES"});},
+    onRemove: (c_id)=>dispatch({type:"DELETECLOTH",c_id}),
   };
 }
 

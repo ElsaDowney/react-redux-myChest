@@ -1,17 +1,17 @@
-const reducer = require('../../public/js/reducers/RegisterAndLogin-reducer');
+const reducer = require('../../public/js/reducers/registerAndLogin-reducer');
 const expect = require('chai').expect;
 
-describe('RegisterAndLogin-reducer', function () {
+describe('RegisterAndLogin reducer', function () {
 
-  it('toggle to Login', function () {
+  it('toggles to Login', function () {
     const state = {toggle: 'Login'};
-    const action = {type: "Toggle", value: 'Login'};
+    const action = {type: "TOGGLE", value: 'Login'};
     expect(reducer(state, action)).to.be.deep.equal({toggle: 'Login'});
   });
 
-  it('toggle to Register', function () {
+  it('toggles to Register', function () {
     const state = {toggle: 'Login'};
-    const action = {type: "Toggle", value: 'Register'};
+    const action = {type: "TOGGLE", value: 'Register'};
     expect(reducer(state, action)).to.be.deep.equal({toggle: 'Register'});
   });
 

@@ -1,8 +1,8 @@
-function reducer(state={clothes:[]}, action){
-  switch(action.type){
+function reducer(state = {clothes: []}, action) {
+  switch (action.type) {
     case "GETCLOTHES":
       return {
-        clothes : action.clothes
+        clothes: action.clothes
       };
     default :
       return state;
