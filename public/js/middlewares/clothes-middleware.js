@@ -12,7 +12,7 @@ export default store => next => action => {
         next({type: "GET_CLOTHES", clothes: res.body});
       });
   } else if (action.type === "MATCH_CLOTHES") {
-    request.post('/clothes/match')
+    request.post('/clothes/matches')
       .send(action.matches)
       .end((err, res)=> {
         next({type: ""})

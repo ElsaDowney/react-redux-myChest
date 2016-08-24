@@ -2,7 +2,7 @@ const clothes = require("../dbs/clothes-match");
 const express = require('express');
 const router = express.Router();
 
-router.post('/clothes/match', (req, res)=> {
+router.post('/clothes/matches', (req, res)=> {
   const userName = "xiaopangzhu";
   const matches = req.body;
   const c_id1 = parseInt(matches[0]);

@@ -28,7 +28,7 @@ describe('server', () => {
 
   it('response /clothes/match and return matchSucceed clothes', function testPath(done) {
     request(server)
-      .post('/clothes/match')
+      .post('/clothes/matches')
       .send([0, 1])
       .expect(200, done);
   });

@@ -1,4 +1,4 @@
-const clothesReducer = require('../../public/js/reducers/clothes-reducer');
+const clothesReducer = require('../../public/js/reducers/clothes');
 const expect = require('chai').expect;
 
 describe('clothesReducer', function () {
