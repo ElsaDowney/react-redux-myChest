@@ -1,7 +1,6 @@
 const url = require('../helpers/get-url');
 const MongoClient = require('../helpers/mongodb');
 
-
 exports.register = function (data, callback) {
 
   var insertData = function (data,db, callback) {

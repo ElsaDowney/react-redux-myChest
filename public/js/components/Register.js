@@ -3,34 +3,17 @@ import React, {Component} from 'react'
 class Register extends Component {
 
   commit() {
-    console.log(this.props.registerState);
-    console.log("hehe")
+
     const username = this.refs.myName.value;
     const password = this.refs.myPassword.value;
     const repeatPassword = this.refs.repeatPassword.value;
 
     if (username.length >= 2 && (password.length >= 6 && password.length <= 12)) {
-
       if (password != repeatPassword) {
         alert("哎呀,两次密码不同啦,请重新输入吧");
       }
       else {
-
         this.props.onCommit(username, password);
-        if (this.props.registerState === 'success') {
-          alert('注册成功');
-        }
-        else {
-          alert('用户已存在');
-        }
-
-
-        // if (this.props.registerState === 'success') {
-        //   alert('注册成功');
-        // }
-        // else {
-        //   alert('用户已存在');
-        // }
       }
     }
     else {
@@ -54,11 +37,18 @@ class Register extends Component {
     } else {
       $(".remarkPassword").remove();
     }
-
   }
 
 
   render() {
+
+    if (this.props.registerState==='success') {
+      alert('注册成功');
+    }
+    if (this.props.registerState==='fail') {
+      alert('用户已存在');
+    }
+
     return <div>
       <div className="user">
         <input type="text" className="form-control" ref="myName"

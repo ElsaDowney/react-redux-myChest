@@ -8,8 +8,8 @@ Register.propTypes = {
 };
 
 const mapStateToProps = (state)=> {
-  console.log(state.registerReducer.registerState);
 
+  console.log(state.registerReducer.registerState);
   return {
     registerState: state.registerReducer.registerState
   };

@@ -9,11 +9,11 @@ router.post('/user', (req, res)=> {
 
   toRegister.register(data, function (result) {
 
-    if (result === 'fail') {
-      res.json({value: 'fail'});
+    if (result==='fail') {
+      res.json({value:'fail'});
     }
     else {
-      res.json({value: 'success'});
+      res.json({value:'success'});
     }
   });
 
