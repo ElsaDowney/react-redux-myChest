@@ -1,6 +1,6 @@
 
 import React, {Component, PropTypes} from "react";
-import MatchList from '../components/matchList';
+import MatchList from '../components/MatchList';
 import {connect} from 'react-redux';
 
 

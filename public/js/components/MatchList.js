@@ -35,7 +35,7 @@ class MatchList extends Component{
         return this.getStyle(cloth, index);
       });
     }
-    return <div className="container  top  wrap-colthes">
+    return <div className="container  top  wrap-colthes matchesbackground">
       {allMatches}
     </div>
   }
