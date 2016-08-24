@@ -294,3 +294,9 @@
     text-align: center;
   }
 }
+
+.buttonCenter {
+  width: 60px;
+  margin-left: auto;
+  margin-right: auto;
+}
