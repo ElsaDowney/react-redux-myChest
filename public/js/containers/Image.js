@@ -12,7 +12,7 @@ class Image extends Component{
     let imageFile;
     return (
       <div>
-        <form onSubmit={this.onSubmit} className="form-group">
+        <form onSubmit={this.props.onSubmit(imageFile)} className="form-group">
           <label for="uploadFile">上传宝贝：</label>
           <input id="uploadFile" type="file" onChange={this.onFileSelect} name="image" className="form-control"/>
           <span className="input-group-btn">
@@ -25,10 +25,11 @@ class Image extends Component{
   }
 }
 
-// function mapDispatchToProps(dispatch){
-//   return {
-//     onSubmit:(imageFile) => {dispatch({type:'UPLOADIMAGE',imageFile})}
-//   }
-// }
+function mapDispatchToProps(dispatch){
 
-export default connect(()=>{return {}}, ()=>{return {}})(Image);
+  return {
+    onSubmit:(imageFile) => {dispatch({type:'UPLOADIMAGE',imageFile})}
+  }
+}
+
+export default connect(()=>{return {}},mapDispatchToProps)(Image);
