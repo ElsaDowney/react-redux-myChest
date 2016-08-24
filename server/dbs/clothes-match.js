@@ -2,7 +2,6 @@ const url = require('../helpers/get-url');
 const MongoClient = require('../helpers/mongodb');
 
 exports.updateMatches = function(userName,c_id1,c_id2,callback){
-  // console.log(userName+c_id1)
   MongoClient.connect(url, function (err, db) {
     const collection=db.collection('users');
     collection.update(

@@ -262,6 +262,13 @@
     text-shadow: 0.1em 0.1em 0.15em #333;
   }
 
+  .left-clothes{
+    /*position: relative;*/
+    /*float:right;*/
+    display:none;
+    /*opacity:0;*/
+  }
+
   .btn-add {
     position: relative;
     margin-bottom: 5px;
