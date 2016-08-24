@@ -5,10 +5,14 @@ onSubmit(){
   const name=this.refs.name.value;
   const password=this.refs.password.value;
   this.props.submit(name,password);
-
 }
-
   render() {
+    if(this.props.isLogin==='success'){
+      alert('登录成功');
+    }
+    else if(this.props.isLogin==='fail'){
+      alert('登录失败');
+    }
     return <div>
       <div className="rows">
         <div className="col-md-3">账号：</div>

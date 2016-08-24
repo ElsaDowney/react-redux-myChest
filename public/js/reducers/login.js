@@ -1,6 +1,9 @@
-export default (state={isLogin:false},action) => {
+export default (state={isLogin:''},action) => {
   switch (action.type){
+
     case 'LOGIN':
+
+     // console.log(action.value);
       return{
         isLogin:action.value
       }

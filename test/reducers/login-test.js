@@ -4,15 +4,15 @@ const expect = require('chai').expect;
 describe('Login-reducer', function () {
 
   it('changes isLogin success', function () {
-    const state = { isLogin: false};
-    const action = { type:'LOGIN',value:true};
-    expect(reducer(state, action)).to.be.deep.equal({isLogin:true});
+    const state = { isLogin: ''};
+    const action = { type:'LOGIN',value:'success'};
+    expect(reducer(state, action)).to.be.deep.equal({isLogin:'success'});
   });
 
   it('changes isLogin false', function () {
-    const state = { isLogin: false};
-    const action = { type:'LOGIN',value:false};
-    expect(reducer(state, action)).to.be.deep.equal({isLogin:false});
+    const state = { isLogin: ''};
+    const action = { type:'LOGIN',value:'fail'};
+    expect(reducer(state, action)).to.be.deep.equal({isLogin:'fail'});
   });
 
 });

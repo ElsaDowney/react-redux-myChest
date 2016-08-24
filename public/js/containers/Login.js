@@ -4,8 +4,9 @@ import Login from "../components/Login";
 
 
 const mapStateToProps = (state)=> {
+  // console.log('state:::'+state.login.isLogin);
   return {
-    isLogin:state.value
+    isLogin:state.login.isLogin
   };
 };
 

@@ -14,11 +14,11 @@ console.log('111');*/
     if (result) {
      /*console.log('222');
       console.log(result);*/
-      res.json({value: true});
+      res.json({value: 'success'});
     }
     else {
      // console.log('333');
-      res.json({value: false});
+      res.json({value: 'fail'});
     }
   });
 
