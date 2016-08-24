@@ -1,9 +1,9 @@
 const url = require('../helpers/get-url');
 const MongoClient = require('../helpers/mongodb');
-const collection = db.collection('users');
 
 exports.getAllClothes = function (userName, callback) {
   MongoClient.connect(url, function (err, db) {
+    const collection = db.collection('users');
     collection.findOne({userName: userName}, function (err, docs) {
       callback(docs);
     });
@@ -11,8 +11,10 @@ exports.getAllClothes = function (userName, callback) {
   });
 };
 
+
 exports.deleteOneClothes = function (userName, c_id, callback) {
   MongoClient.connect(url, (err, db)=> {
+    const collection = db.collection('users');
     collection.update({userName: userName}, {$pull: {"clo_list": {c_id: parseInt(c_id)}}}, (err, result)=> {
       this.getAllClothes(userName, (result) => {
         callback(result);

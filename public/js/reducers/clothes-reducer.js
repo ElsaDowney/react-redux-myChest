@@ -1,6 +1,6 @@
 function reducer(state = {clothes: []}, action) {
   switch (action.type) {
-    case "GETCLOTHES":
+    case "GET_CLOTHES":
       return {
         clothes: action.clothes
       };
