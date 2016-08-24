@@ -23,7 +23,8 @@ import register from './middlewares/register';
 
 import matchList from "./middlewares/matchList"
 
-const createStoreWithMiddleware = applyMiddleware(clothes,RegisterLogin,register,login,matchList,ImageUpload,SaveAdd)(createStore);
+const createStoreWithMiddleware = applyMiddleware(clothes,
+  RegisterLogin,register,login,matchList,ImageUpload,SaveAdd)(createStore);
 
 
 const store = createStoreWithMiddleware(reducer);
