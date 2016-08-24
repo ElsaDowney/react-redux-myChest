@@ -8,7 +8,7 @@ class ClothList extends Component{
   }
 
   mouseOver(){
-    $('.a').mouseover(function(){
+    $('.imgage').mouseover(function(){
       $(this).next().css("opacity",0.7);
     });
     $('.delete-wrap').mouseover(function(){
@@ -17,7 +17,7 @@ class ClothList extends Component{
   }
 
   mouseOut(){
-    $('.a').mouseout(function(){
+    $('.imgage').mouseout(function(){
       $(this).next().css("opacity",0);
     });
   }
@@ -27,13 +27,16 @@ class ClothList extends Component{
   }
 
   remove(section){
-    const c_id = section.c_id;
-    this.props.onRemove(c_id);
+    this.props.onRemove(section.c_id);
   }
 
   addWrap(){
     $("input:checked").parent().siblings(".img-wrap").css("display","inline");
     $("input:not(:checked)").parent().siblings(".img-wrap").css("display","none");
+  }
+
+  showAll(){
+    $(".left-clothes").css("display","inline");
   }
 
   getAllSectionWithTig(clothes){
@@ -42,7 +45,7 @@ class ClothList extends Component{
       return (
         <div className="imgSize" key={index}>
           <div className="img-wrap"></div>
-          <img className="a" src={imgUrl}
+          <img className="imgage" src={imgUrl}
                onMouseOver={this.mouseOver}
                onMouseOut={this.mouseOut}/>
           <div className="delete-wrap">
@@ -58,6 +61,9 @@ class ClothList extends Component{
         </div>
       )
     });
+    const frontThreeClothes = sectionClothes.slice(0,1);
+    const leftClothes = sectionClothes.slice(1,2);
+    console.log({frontThreeClothes});
     return (
       <div>
         <span className="title-inline text-success">{clothes.sort}</span>
@@ -68,7 +74,10 @@ class ClothList extends Component{
           </button>
         </Link>
         <hr />
-        {sectionClothes}
+        {frontThreeClothes}
+        <div className="left-clothes">{leftClothes}</div>
+        <span  className="left-clothes">llllll</span>
+        <button onClick={this.showAll}>show all</button>
         <hr />
       </div>
     )

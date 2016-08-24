@@ -8,7 +8,7 @@ exports.getAllClothes = function (userName, callback) {
       callback(docs);
     });
     db.close();
-  })
+  });
 };
 
 
@@ -21,7 +21,7 @@ exports.deleteOneClothes = function (userName, c_id, callback) {
       })
     });
     db.close();
-  })
+  });
 };
 
 
