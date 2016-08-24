@@ -11,9 +11,11 @@ import clothes from "./middlewares/clothes-middleware";
 
 import Home from "./components/Home";
 import RegisterAndLogin from './containers/RegisterAndLogin';
+import MatchList from './containers/matchList'
 import RegisterLogin from './middlewares/register-login';
+import matchList from "./middlewares/matchList"
 
-const createStoreWithMiddleware = applyMiddleware(getValue,clothes,RegisterLogin)(createStore);
+const createStoreWithMiddleware = applyMiddleware(getValue,clothes,RegisterLogin,matchList)(createStore);
 
 const store = createStoreWithMiddleware(reducer);
 
@@ -24,7 +26,8 @@ render(
         <IndexRoute component={Home}/>
         <Route path="Home" component={Home}/>
         <Route path="RegisterAndLogin" component={RegisterAndLogin}/>
-        <Route path="ClothList" component={ClothList}/>      
+        <Route path="ClothList" component={ClothList}/>
+        <Router path="LoginAndRegister" component={MatchList}/>
     </Route>
     </Router>
   </Provider>, document.getElementById('app'));
