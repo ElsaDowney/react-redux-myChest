@@ -5,7 +5,7 @@ const mongoClient = require('../../server/helpers/mongodb');
 describe('server', () => {
   let server;
 
-  beforeEach(function (done) {
+  beforeEach((done) => {
     mongoClient.connect(url, (err, db)=> {
       const collection = db.collection('users');
       collection.removeMany({}, ()=> {
@@ -26,7 +26,7 @@ describe('server', () => {
     server = require('../../server');
   });
 
-  it('return clothes of responds to /clothes', function testSlash(done) {
+  it('return clothes of responds to /clothes', (done) => {
     request(server)
       .get('/clothes')
       .expect(200, [
@@ -35,7 +35,7 @@ describe('server', () => {
       ], done);
   });
 
-  it('responds to /clothes/1 and return deleted clothes', function testPath(done) {
+  it('responds to /clothes/1 and return deleted clothes', (done) => {
     request(server)
       .del('/clothes/1')
       .expect(200, done);

@@ -3,12 +3,14 @@ const clothesReducer = require('./clothes');
 const matchListReducer = require('./matchList-reducer');
 const registerAndLogin=require('./registerAndLogin-reducer');
 const  registerReducer=require('./register-reducer');
+import login from "./login"
 
 const appReducer = combineReducers({
   clothesReducer,
   registerAndLogin,
+  registerReducer,
+  login,
   matchListReducer,
-  registerReducer
 });
 
 export default appReducer;

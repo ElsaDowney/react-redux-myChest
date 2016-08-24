@@ -37,3 +37,9 @@
 .font-center {
   text-align: center;
 }
+
+.login-register{
+  background-image: url("../images/ydd21.jpg");
+  WebkitTransition: 'all';
+  msTransition: 'all';
+}

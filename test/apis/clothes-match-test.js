@@ -5,7 +5,7 @@ const mongoClient = require('../../server/helpers/mongodb');
 describe('server', () => {
   let server;
 
-  beforeEach(function (done) {
+  beforeEach((done)=> {
     mongoClient.connect(url, (err, db)=> {
       const collection = db.collection('users');
       collection.removeMany({}, ()=> {
@@ -26,7 +26,7 @@ describe('server', () => {
     server = require('../../server');
   });
 
-  it('response /clothes/match and return matchSucceed clothes', function testPath(done) {
+  it('response /clothes/match and return matchSucceed clothes', (done) => {
     request(server)
       .post('/clothes/matches')
       .send([0, 1])

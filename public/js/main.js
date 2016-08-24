@@ -12,11 +12,11 @@ import Home from "./components/Home";
 import RegisterAndLogin from './containers/RegisterAndLogin';
 import MatchList from './containers/matchList'
 import RegisterLogin from './middlewares/register-login';
-import matchList from "./middlewares/matchList"
-
+import login from './middlewares/login';
 import register from './middlewares/register';
 
-const createStoreWithMiddleware = applyMiddleware(clothes,RegisterLogin,register,matchList)(createStore);
+const createStoreWithMiddleware = applyMiddleware(clothes,RegisterLogin,register,login,matchList)(createStore);
+import matchList from "./middlewares/matchList"
 
 const store = createStoreWithMiddleware(reducer);
 
