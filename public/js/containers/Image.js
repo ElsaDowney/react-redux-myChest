@@ -30,6 +30,4 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-export default connect(()=> {
-  return {}
-}, mapDispatchToProps)(Image);
+export default connect(()=> {return {}}, mapDispatchToProps)(Image);

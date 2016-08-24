@@ -7,6 +7,8 @@ import App from "./containers/App";
 import ClothList from './containers/ClothList';
 import reducer from "./reducers/index";
 import clothes from "./middlewares/clothes-middleware";
+import ClothForm from './components/ClothForm'
+
 
 import Home from "./components/Home";
 import RegisterAndLogin from './containers/RegisterAndLogin';

@@ -6,8 +6,8 @@ export default store => next => action => {
       .attach("image-name",action.imageFile,action.imageFile.name)
       .end((err, res) => {
         console.log(res.body);
-        console.log(res.text);
-        next({type: action.type, imageFile: res.body});
+        console.log(typeof res.body);
+        next({type: 'UPLOADIMAGE', imageName: res.body});
       });
   }
   else
