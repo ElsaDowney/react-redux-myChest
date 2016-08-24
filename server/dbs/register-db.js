@@ -33,7 +33,6 @@ exports.register = function (data, callback) {
 
       if (result.length === 0) {
         insertData(data,db, function (result) {
-
           callback(result);
         });
       }

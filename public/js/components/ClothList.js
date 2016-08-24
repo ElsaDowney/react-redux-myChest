@@ -79,11 +79,11 @@ class ClothList extends Component {
   }
 
   matchClothes() {
-    $(".input-select").css("display", "inline");
+    $(".input-select").show();
   }
 
   hiddenMatch() {
-    $(".input-select").css("display", "none");
+    $(".input-select").hide();
   }
 
   confirmMatch() {
@@ -95,22 +95,27 @@ class ClothList extends Component {
     browserHistory.push('/Home');
   }
 
-  render() {
-    const allColthes = this.props.clothes;
+  getClothesWithClass(clothes){
     const clothesWithClass = [];
-    for (let clothes of allColthes) {
-      const element = this.findClothesType(clothes.sort, clothesWithClass);
+    for (let cloth of clothes) {
+      const element = this.findClothesType(cloth.sort, clothesWithClass);
       if (element) {
-        element.allSections.push(clothes)
+        element.allSections.push(cloth)
       } else {
         const clothesObj = {};
         const arr = [];
-        arr.push(clothes);
-        clothesObj.sort = clothes.sort;
+        arr.push(cloth);
+        clothesObj.sort = cloth.sort;
         clothesObj.allSections = arr;
         clothesWithClass.push(clothesObj);
       }
     }
+    return clothesWithClass;
+  }
+
+  render() {
+    const clothesWithClass = this.getClothesWithClass(this.props.clothes);
+
     const clothes = clothesWithClass.map(clothes => {
       return this.getAllSectionWithTig(clothes);
     });
