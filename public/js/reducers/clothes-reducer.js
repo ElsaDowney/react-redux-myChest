@@ -4,8 +4,6 @@ function reducer(state = {clothes: []}, action) {
       return {
         clothes: action.clothes
       };
-    default :
-      return state;
   }
   return state;
 }
