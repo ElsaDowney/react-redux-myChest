@@ -1,4 +1,5 @@
 function getAllMatches(allColthes) {
+
   const show = [];
   allColthes.map((clothes)=> {
     if (clothes.sort === "coat") {
