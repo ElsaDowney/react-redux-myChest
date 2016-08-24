@@ -1,0 +1,38 @@
+.top {
+    margin-top:10%;
+}
+
+.wrap-colthes{
+    width: 68%;
+    border: 1px solid #d2cdcd;
+    border-radius: 5px;
+}
+
+.photoTop{
+
+    margin-top:20px;
+    width: 80%;
+    height: 80%;
+}
+
+.photoBottom{
+    margin-top: 5px;
+    margin-bottom: 10px;
+    width: 80%;
+    height: 80%;
+}
+
+.totalTop{
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.matchesbackground {
+    height: 100%;
+    border: 1px solid #deafd4;
+    background: url('../images/matchBack.jpg');
+}
+
+.font-center{
+  text-align: center;
+}
