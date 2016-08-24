@@ -1,5 +1,7 @@
 import React, {Component} from "react";
 import {browserHistory} from 'react-router';
+import request from 'superagent';
+import Home from './Home';
 const Link = require('react-router').Link;
 
 class ClothList extends Component{
@@ -96,7 +98,12 @@ class ClothList extends Component{
     $("input:checked").each(function(){
       matches.push($(this).val())
     });
-    this.props.onMatchClothes(matches);
+    request.post('/clothes/match')
+      .send(matches)
+      .end((err,res)=>{
+        alert("匹配成功");
+        browserHistory.push('/Home');
+      })
   }
 
   render() {
@@ -131,6 +138,5 @@ class ClothList extends Component{
       )
   }
 }
-
 
 export default ClothList;
