@@ -26,7 +26,7 @@ describe('server', () => {
     server = require('../../server');
   });
 
-  it('response /clothes/match return matchSucceed clothes', function testPath(done) {
+  it('response /clothes/match and return matchSucceed clothes', function testPath(done) {
     request(server)
       .post('/clothes/match')
       .send([0, 1])

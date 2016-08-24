@@ -35,7 +35,7 @@ describe('server', () => {
       ], done);
   });
 
-  it('return deleted clothes of responds to /clothes/1', function testPath(done) {
+  it('responds to /clothes/1 and return deleted clothes', function testPath(done) {
     request(server)
       .del('/clothes/1')
       .expect(200, done);

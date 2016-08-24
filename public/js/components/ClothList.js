@@ -62,9 +62,6 @@ class ClothList extends Component {
         </div>
       )
     });
-    const frontThreeClothes = sectionClothes.slice(0, 1);
-    const leftClothes = sectionClothes.slice(1, 2);
-    console.log({frontThreeClothes});
     return (
       <div>
         <span className="title-inline text-success">{clothes.sort}</span>
@@ -75,10 +72,7 @@ class ClothList extends Component {
           </button>
         </Link>
         <hr />
-        {frontThreeClothes}
-        <div className="left-clothes">{leftClothes}</div>
-        <span className="left-clothes">llllll</span>
-        <button onClick={this.showAll}>show all</button>
+        {sectionClothes}
         <hr />
       </div>
     )
@@ -97,7 +91,8 @@ class ClothList extends Component {
     $("input:checked").each(function () {
       matches.push($(this).val())
     });
-
+    alert("匹配成功");
+    browserHistory.push('/Home');
   }
 
   render() {
