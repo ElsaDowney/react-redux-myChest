@@ -8,5 +8,3 @@ describe('clothesReducer', function () {
     expect(clothesReducer(state, action)).to.be.deep.equal({clothes : [{c_id:1,image:"111"}]});
   });
 });
-
-
