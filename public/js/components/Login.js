@@ -14,18 +14,18 @@ onSubmit(){
       alert('登录失败');
     }
     return <div>
-      <div className="rows">
-        <div className="col-md-3">账号：</div>
-        <input type="text" ref="name" className="col-md-9 "
+      <div className="usersName">
+        <input type="text" ref="name" className="form-control "
                placeholder="请输入用户名"/>
       </div>
       <br/>
-      <div className="rows">
-        <div className="col-md-3">密码：</div>
-        <input type="password" className="col-md-9" ref="password"
+      <div className="password">
+        <input type="password" className="form-control" ref="password"
                 placeholder="请输入密码"/>
       </div>
-      <button　onClick={this.onSubmit.bind(this)}>登录</button>
+      <div className="buttonCenter">
+      <button　className="btn btn-default" onClick={this.onSubmit.bind(this)}>登录</button>
+        </div>
     </div>
   }
 }
