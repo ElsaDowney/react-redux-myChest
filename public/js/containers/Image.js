@@ -1,35 +1,35 @@
 import React, {Component} from 'react';
 import {render} from 'react';
-import connect from 'react-redux';
+import {connect} from 'react-redux';
 
-class Image extends Component{
-  onFileSelect(e){
-    imageFile = e.target.value.files[0];
-    console.log(imageFile);
+class Image extends Component {
+
+
+  uploadImage() {
+    const imageFile = this.refs.image.files[0];
+    this.props.onUpload(imageFile);
   }
 
-  render(){
-    let imageFile;
+  render() {
     return (
       <div>
-        <form onSubmit={this.props.onSubmit(imageFile)} className="form-group">
-          <label for="uploadFile">上传宝贝：</label>
-          <input id="uploadFile" type="file" onChange={this.onFileSelect} name="image" className="form-control"/>
-          <span className="input-group-btn">
-
-                    <input type="submit" value="确定上传" className="btn btn-primary btn-sm"/>
-                </span>
-        </form>
+        <label for="uploadFile">上传宝贝：</label>
+        <input ref="image" id="uploadFile" type="file" className="form-control"/>
+        <button onClick={this.uploadImage.bind(this)}
+                className="btn btn-primary btn-sm">确定上传</button>
       </div>
     )
   }
 }
 
-function mapDispatchToProps(dispatch){
-
+function mapDispatchToProps(dispatch) {
   return {
-    onSubmit:(imageFile) => {dispatch({type:'UPLOADIMAGE',imageFile})}
+    onUpload: (imageFile) => {
+      dispatch({type: 'UPLOADIMAGE', imageFile})
+    }
   }
 }
 
-export default connect(()=>{return {}},mapDispatchToProps)(Image);
+export default connect(()=> {
+  return {}
+}, mapDispatchToProps)(Image);

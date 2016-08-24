@@ -17,7 +17,7 @@ describe('server', () => {
     });
   });
 
-  it('responds to /cloth', function testSlash(done) {
+  it('responds to /upload', function testSlash(done) {
     request(server)
       .put("/upload")
       .attach("image-file", 'test/fixtures/test1.jpg')

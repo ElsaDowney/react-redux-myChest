@@ -34,7 +34,7 @@ class ClothForm extends Component {
 
   render() {
     return (
-      <div>
+      <div className="wrap-colthes">
         <div>
           <label for="selectReason">选择季节：</label>
           <select id="selectReason" multiple="multiple"

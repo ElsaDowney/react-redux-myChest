@@ -12,14 +12,16 @@ import Home from "./components/Home";
 import RegisterAndLogin from './containers/RegisterAndLogin';
 import MatchList from './containers/matchList'
 import RegisterLogin from './middlewares/register-login';
+import ImageUpload from './middlewares/image-upload'
 
 import login from './middlewares/login';
 import register from './middlewares/register';
 
-const createStoreWithMiddleware = applyMiddleware(clothes,RegisterLogin,register,login,matchList)(createStore);
+
 import matchList from "./middlewares/matchList"
 
-import ClothForm from './components/ClothForm'
+const createStoreWithMiddleware = applyMiddleware(clothes,RegisterLogin,register,login,matchList,ImageUpload)(createStore);
+import ClothForm from './containers/ClothForm'
 
 
 const store = createStoreWithMiddleware(reducer);
@@ -32,9 +34,7 @@ render(
         <Route path="Home" component={Home}/>
         <Route path="RegisterAndLogin" component={RegisterAndLogin}/>
         <Route path="ClothList" component={ClothList}/>
-
         <Router path="LoginAndRegister" component={MatchList}/>
-
         <Route path="ClothForm" component={ClothForm}/>
 
     </Route>
