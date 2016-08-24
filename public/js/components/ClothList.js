@@ -1,48 +1,47 @@
 import React, {Component} from "react";
 import {browserHistory} from 'react-router';
-import request from 'superagent';
 import Home from './Home';
 const Link = require('react-router').Link;
 
-class ClothList extends Component{
-  componentDidMount(){
+class ClothList extends Component {
+  componentDidMount() {
     this.props.getClothes();
   }
 
-  mouseOver(){
-    $('.imgage').mouseover(function(){
-      $(this).next().css("opacity",0.7);
+  mouseOver() {
+    $('.imgage').mouseover(function () {
+      $(this).next().css("opacity", 0.7);
     });
-    $('.delete-wrap').mouseover(function(){
-      $(this).css("opacity",0.7);
-    });
-  }
-
-  mouseOut(){
-    $('.imgage').mouseout(function(){
-      $(this).next().css("opacity",0);
+    $('.delete-wrap').mouseover(function () {
+      $(this).css("opacity", 0.7);
     });
   }
 
-  findClothesType(type,clothes){
-    return  clothes.find(item => item.sort === type);
+  mouseOut() {
+    $('.imgage').mouseout(function () {
+      $(this).next().css("opacity", 0);
+    });
   }
 
-  remove(section){
+  findClothesType(type, clothes) {
+    return clothes.find(item => item.sort === type);
+  }
+
+  remove(section) {
     this.props.onRemove(section.c_id);
   }
 
-  addWrap(){
-    $("input:checked").parent().siblings(".img-wrap").css("display","inline");
-    $("input:not(:checked)").parent().siblings(".img-wrap").css("display","none");
+  addWrap() {
+    $("input:checked").parent().siblings(".img-wrap").css("display", "inline");
+    $("input:not(:checked)").parent().siblings(".img-wrap").css("display", "none");
   }
 
-  showAll(){
-    $(".left-clothes").css("display","inline");
+  showAll() {
+    $(".left-clothes").css("display", "inline");
   }
 
-  getAllSectionWithTig(clothes){
-    const sectionClothes = clothes.allSections.map((section,index) => {
+  getAllSectionWithTig(clothes) {
+    const sectionClothes = clothes.allSections.map((section, index) => {
       const imgUrl = `../../images/image${section.image}.jpg`;
       return (
         <div className="imgSize" key={index}>
@@ -52,19 +51,19 @@ class ClothList extends Component{
                onMouseOut={this.mouseOut}/>
           <div className="delete-wrap">
             <span className="glyphicon glyphicon-trash delete"
-                  onClick={this.remove.bind(this,section)}>
+                  onClick={this.remove.bind(this, section)}>
             </span>
           </div>
           <div className="select">
-            <input type="radio" name={section.sort} className="input-select"  id="select"
+            <input type="radio" name={section.sort} className="input-select" id="select"
                    value={section.c_id}
                    onClick={this.addWrap}/>
           </div>
         </div>
       )
     });
-    const frontThreeClothes = sectionClothes.slice(0,1);
-    const leftClothes = sectionClothes.slice(1,2);
+    const frontThreeClothes = sectionClothes.slice(0, 1);
+    const leftClothes = sectionClothes.slice(1, 2);
     console.log({frontThreeClothes});
     return (
       <div>
@@ -78,64 +77,65 @@ class ClothList extends Component{
         <hr />
         {frontThreeClothes}
         <div className="left-clothes">{leftClothes}</div>
-        <span  className="left-clothes">llllll</span>
+        <span className="left-clothes">llllll</span>
         <button onClick={this.showAll}>show all</button>
         <hr />
       </div>
     )
   }
 
-  matchClothes(){
-    $(".input-select").css("display","inline");
+  matchClothes() {
+    $(".input-select").css("display", "inline");
   }
 
-  hiddenMatch(){
-    $(".input-select").css("display","none");
+  hiddenMatch() {
+    $(".input-select").css("display", "none");
   }
 
-  confirmMatch(){
+  confirmMatch() {
     const matches = [];
-    $("input:checked").each(function(){
+    $("input:checked").each(function () {
       matches.push($(this).val())
     });
-    request.post('/clothes/match')
-      .send(matches)
-      .end((err,res)=>{
-        alert("匹配成功");
-        browserHistory.push('/Home');
-      })
+
   }
 
   render() {
     const allColthes = this.props.clothes;
-      const clothesWithClass = [];
-      for(let clothes of allColthes){
-        const element = this.findClothesType(clothes.sort,clothesWithClass);
-        if (element) {
-          element.allSections.push(clothes)
-        }else {
-          const clothesObj = {};
-          const arr = [];
-          arr.push(clothes);
-          clothesObj.sort =clothes.sort;
-          clothesObj.allSections = arr;
-          clothesWithClass.push(clothesObj);
-        }
+    const clothesWithClass = [];
+    for (let clothes of allColthes) {
+      const element = this.findClothesType(clothes.sort, clothesWithClass);
+      if (element) {
+        element.allSections.push(clothes)
+      } else {
+        const clothesObj = {};
+        const arr = [];
+        arr.push(clothes);
+        clothesObj.sort = clothes.sort;
+        clothesObj.allSections = arr;
+        clothesWithClass.push(clothesObj);
       }
-      const clothes = clothesWithClass.map(clothes => {
-        return this.getAllSectionWithTig(clothes);
-      });
-      return (
-        <div className="wrap-colthes">
-          {clothes}
-          <button className="btn-match btn btn-primary"
-                  onClick={this.matchClothes}
-                  onDoubleClick={this.hiddenMatch}>搭配</button>
-          <p className="btn-foot"><button className="btn btn-info"
-                                          onClick={this.confirmMatch.bind(this)}>确认搭配</button></p>
-          <p className="btn-foot"><button className="btn btn-info" disabled="disabled">点击添加类型</button></p>
-        </div>
-      )
+    }
+    const clothes = clothesWithClass.map(clothes => {
+      return this.getAllSectionWithTig(clothes);
+    });
+    return (
+      <div className="wrap-colthes">
+        {clothes}
+        <button className="btn-match btn btn-primary"
+                onClick={this.matchClothes}
+                onDoubleClick={this.hiddenMatch}>搭配
+        </button>
+        <p className="btn-foot">
+          <button className="btn btn-info"
+                  onClick={this.confirmMatch.bind(this)}>确认搭配
+          </button>
+        </p>
+        <p className="btn-foot">
+          <button className="btn btn-info" disabled="disabled">点击添加类型</button>
+        </p>
+      </div>
+    )
   }
 }
 
