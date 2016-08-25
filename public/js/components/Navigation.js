@@ -16,7 +16,7 @@ class Nav extends Component{
                   <li className="active"><Link to='/'>首页</Link></li>
                   <li><Link to='ClothList'>我的衣柜</Link></li>
                   <li><Link to='ClothForm'>添加美衣</Link></li>
-                  <li><Link to='LoginAndRegister'>我的搭配</Link></li>
+                  <li><Link to='MatchList'>我的搭配</Link></li>
                 </ul>
                 <ul className="nav navbar-nav navbar-right">
                   <li><Link to='RegisterAndLogin'>登陆/注册</Link></li>
