@@ -4,7 +4,6 @@ const mongoClient = require('../../server/helpers/mongodb');
 
 describe('server', () => {
   let server;
-  const useName = 'xiaopangzhu';
   beforeEach(function (done) {
     mongoClient.connect(url, (err, db)=> {
       const collection = db.collection('users');
