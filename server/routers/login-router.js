@@ -1,14 +1,22 @@
 const express = require('express');
 const login = require('../dbs/login-db');
-
+const session = require('express-session');
 const router = express.Router();
 
+router.use(session({secret: 'ssshhhhh'}));
+
+  let sess;
 router.post('/sessions', (req, res)=> {
 
    const data = {name: req.body.name, password: req.body.password};
 
   login.toLogin(data, function (result) {
     if (result) {
+     // console.log(result);
+     // console.log(result.username);
+      sess=req.session;
+      sess.username = result.username;
+    //  console.log(req.session.username);
       res.json({value: 'success'});
     }
     else {
