@@ -28,9 +28,7 @@ exports.register = function (data, callback) {
   MongoClient.connect(url, function (err, db) {
 
     selectData(db, function (result) {
-
-      console.log(result);
-
+      
       if (result.length === 0) {
         insertData(data,db, function (result) {
           callback(result);
