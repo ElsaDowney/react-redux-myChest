@@ -1,4 +1,4 @@
-const matches = require('../../public/js/functions/getAllMatches');
+import matches from '../../public/js/functions/getAllMatches';
 const expect = require('chai').expect;
 
 describe('build match array', function () {

@@ -22,6 +22,6 @@ const getAllMatches=(allColthes)=> {
     }
   });
   return show;
-}
+};
 
 export default getAllMatches;
