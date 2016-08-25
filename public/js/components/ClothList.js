@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import ClothesTypeToTig from './ClothesType-toTig';
+import ClothesTypeToTag from './ClothesTypeToTag';
 import {browserHistory} from 'react-router';
 const Link = require('react-router').Link;
 
@@ -39,13 +39,13 @@ class ClothList extends Component {
     clothes.map(cloth => {
       const element = this.findClothesType(cloth.sort, clothesWithClass);
       if (element) {
-        element.allSections.push(cloth)
+        element.sections.push(cloth)
       } else {
         const clothesObj = {};
         const arr = [];
         arr.push(cloth);
         clothesObj.sort = cloth.sort;
-        clothesObj.allSections = arr;
+        clothesObj.sections = arr;
         clothesWithClass.push(clothesObj);
       }
     });
@@ -55,7 +55,7 @@ class ClothList extends Component {
   render() {
     const clothesWithClass = this.getClothesWithClass(this.props.clothes);
     const clothes = clothesWithClass.map(clothes => {
-      return <ClothesTypeToTig clothes={clothes}
+      return <ClothesTypeToTag clothes={clothes}
                                onRemove={this.props.onRemove}
                                onConfirm={this.props.onConfirm}/>;
     });

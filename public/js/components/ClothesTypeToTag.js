@@ -1,7 +1,10 @@
+/**
+ * Created by qmm on 25/08/16.
+ */
 import React, {Component} from 'react';
 const Link = require('react-router').Link;
 
-class ClothesTypeToTig extends Component {
+class ClothesTypeToTag extends Component {
   remove(section) {
     this.props.onRemove(section.c_id);
   }
@@ -27,7 +30,7 @@ class ClothesTypeToTig extends Component {
   }
 
   render() {
-    const sectionClothes = this.props.clothes.allSections.map((section, index) => {
+    const sectionClothes = this.props.clothes.sections.map((section, index) => {
       const imgUrl = `../../images/image${section.image}.jpg`;
       return (
         <div className="imgSize" key={index}>
@@ -66,4 +69,4 @@ class ClothesTypeToTig extends Component {
   }
 }
 
-export default ClothesTypeToTig;
+export default ClothesTypeToTag;
