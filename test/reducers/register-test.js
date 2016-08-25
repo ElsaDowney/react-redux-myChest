@@ -1,4 +1,4 @@
-const reducer = require('../../public/js/reducers/register-reducer');
+const reducer = require('../../public/js/reducers/register');
  const expect = require('chai').expect;
 
 describe('Register', function () {
