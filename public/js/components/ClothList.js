@@ -31,7 +31,7 @@ class ClothList extends Component {
     });
     this.props.onConfirm(matches);
     alert("搭配成功");
-    browserHistory.push('/Home');
+    browserHistory.push('/MatchList');
   }
 
   getClothesWithClass(clothes) {
