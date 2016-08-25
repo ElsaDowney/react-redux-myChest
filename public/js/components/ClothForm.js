@@ -2,9 +2,6 @@ import React, {Component} from 'react';
 import {render} from 'react';
 import Image from '../containers/Image'
 
-import {browserHistory} from 'react-router';
-const Link = require('react-router').Link;
-
 let cloItem = {
   "season": '',
   "color": [],
@@ -33,7 +30,6 @@ class ClothForm extends Component {
 
   selectSort(e) {
     cloItem.sort = e.target.value;
-    console.log(cloItem);
   }
 
   render() {

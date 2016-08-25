@@ -1,4 +1,5 @@
 function reducer(state = {image:''}, action) {
+
   switch (action.type) {
     case "UPLOADIMAGE":
       return {
