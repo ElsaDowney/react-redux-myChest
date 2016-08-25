@@ -1,6 +1,6 @@
 import React, {Component} from "react";
+import ClothesTypeToTig from './ClothesType-toTig';
 import {browserHistory} from 'react-router';
-import ClothesTypeToTig from './ClothesType-toTig'
 const Link = require('react-router').Link;
 
 class ClothList extends Component {
@@ -27,11 +27,6 @@ class ClothList extends Component {
     return clothes.find(item => item.sort === type);
   }
 
-  addWrap() {
-    $("input:checked").parent().siblings(".img-wrap").css("display", "inline");
-    $("input:not(:checked)").parent().siblings(".img-wrap").css("display", "none");
-  }
-
   showAll() {
     $(".left-clothes").css("display", "inline");
   }
@@ -49,6 +44,7 @@ class ClothList extends Component {
     $("input:checked").each(function () {
       matches.push($(this).val())
     });
+    this.props.onConfirm(matches);
     alert("搭配成功");
     browserHistory.push('/Home');
   }
@@ -75,7 +71,8 @@ class ClothList extends Component {
     const clothesWithClass = this.getClothesWithClass(this.props.clothes);
     const clothes = clothesWithClass.map(clothes => {
       return <ClothesTypeToTig clothes={clothes}
-                               onRemove={this.props.onRemove}/>;
+                               onRemove={this.props.onRemove}
+                               onConfirm={this.props.onConfirm}/>;
     });
 
     return (
@@ -85,6 +82,7 @@ class ClothList extends Component {
                 onClick={this.matchClothes}
                 onDoubleClick={this.hiddenMatch}>搭配
         </button>
+
         <p className="btn-foot">
           <button className="btn btn-info"
                   onClick={this.confirmMatch.bind(this)}>确认搭配
