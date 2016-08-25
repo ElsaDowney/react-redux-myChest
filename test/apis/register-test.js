@@ -8,11 +8,11 @@ describe('server', () => {
   beforeEach(function (done) {
     mongoClient.connect(url, (err, db)=> {
       const collection = db.collection('users');
-      collection.removeMany({},()=>{
+      collection.removeMany({}, ()=> {
         collection.insert([{
-          username:"3q",
-          password:"123456",
-          clo_list:[]
+          username: "3q",
+          password: "123456",
+          clo_list: []
         }], (err, result)=> {
         });
         db.close();
@@ -25,15 +25,15 @@ describe('server', () => {
   it('return fail to show user exist', function testPath(done) {
     request(server)
       .post('/user')
-      .send({username:'3q',password:'123456'})
-      .expect(200,{value:'fail'}, done);
+      .send({username: '3q', password: '123456'})
+      .expect(200, {value: 'fail'}, done);
   });
 
   it('return success to show register successfully', function testPath(done) {
     request(server)
       .post('/user')
-      .send({username:'111',password:'123456'})
-      .expect(200,{value:'success'}, done);
+      .send({username: '111', password: '123456'})
+      .expect(200, {value: 'success'}, done);
   });
 });
 

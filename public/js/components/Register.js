@@ -41,8 +41,8 @@ class Register extends Component {
 
   render() {
     if (this.props.registerState === 'success') {
-      alert('注册成功');
-      location.href='/RegisterAndLogin'
+      alert('注册成功,请登陆');
+      location.href = '/RegisterAndLogin'
     }
     if (this.props.registerState === 'fail') {
       alert('用户已存在');

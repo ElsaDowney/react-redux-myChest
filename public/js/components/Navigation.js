@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 var Link = require('react-router').Link;
-const Nav = React.createClass({
 
+class Nav extends Component{
   render() {
     return (
       <div className="navbar-wrapper ">
@@ -21,7 +21,7 @@ const Nav = React.createClass({
                 <ul className="nav navbar-nav navbar-right">
                   <li><Link to='RegisterAndLogin'>登陆/注册</Link></li>
                 </ul>
-              </div>
+               </div>
             </div>
           </nav>
 
@@ -29,5 +29,6 @@ const Nav = React.createClass({
       </div>
     )
   }
-});
-module.exports = Nav;
+}
+
+export default Nav;

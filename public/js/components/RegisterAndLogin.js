@@ -7,10 +7,11 @@ class RegisterAndLogin extends Component {
   change(value) {
     this.props.onToggle(value);
   }
+
   render() {
-    
+
     return (
-      <div id="register-login-center"  className="login-register">
+      <div id="register-login-center" className="login-register">
         <div className="panel-heading">
           <div className="row">
             <div className="col-md-6 ">
@@ -21,10 +22,10 @@ class RegisterAndLogin extends Component {
             </div>
           </div>
           <hr/>
-          <div className={this.props.toggle==='Login' ? '' : 'hidden'}>
+          <div className={this.props.toggle === 'Login' ? '' : 'hidden'}>
             <Login/>
           </div>
-          <div className={this.props.toggle==='Login' ? 'hidden' : ''}>
+          <div className={this.props.toggle === 'Login' ? 'hidden' : ''}>
             <Register/>
           </div>
         </div>

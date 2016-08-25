@@ -5,9 +5,8 @@ export default store => next => action => {
 
 
     request.post('/user')
-      .send({username: action.username,password:action.password})
+      .send({username: action.username, password: action.password})
       .end((err, res) => {
-        // console.log(res.body);
         next({type: action.type, value: res.body.value})
       });
   }
