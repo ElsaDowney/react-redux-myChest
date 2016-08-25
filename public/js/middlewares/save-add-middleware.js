@@ -9,7 +9,7 @@ export default store => next => action => {
           if(err) {
             console.log(err);
           }else {
-            alert('添加衣物成功！');
+            alert(res.body.value);
           }
         next({type:''});
       });

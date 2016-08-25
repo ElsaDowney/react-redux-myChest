@@ -5,7 +5,21 @@ const mongoClient = require('../../server/helpers/mongodb');
 describe('server', () => {
   let server;
 
-  beforeEach(()=> {
+  beforeEach((done)=> {
+    mongoClient.connect(url, (err, db)=> {
+      const collection = db.collection('users');
+      collection.removeMany({}, ()=> {
+        collection.insert([{
+          _id: 1,
+          userName: "cheng",
+          password: "123456",
+          clo_list: []
+        }], (err, result)=> {
+        });
+        db.close();
+        done();
+      });
+    });
     server = require('../../server');
   });
 
@@ -27,11 +41,11 @@ describe('server', () => {
   it('responds to /cloth', function testSlash(done) {
     request(server)
       .post('/cloth')
-      .send( {season: 'spring',
+      .send({cloItem: {season: 'spring',
         style: '小清新',
         sort: 'pants',
         image: 'imageadc1.jpg',
-        colors: ['红色，黄色']})
+        colors: ['红色，黄色']} })
       .set('Content-Type', 'application/json')
       .expect(201,done)
   });
