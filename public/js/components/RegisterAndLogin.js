@@ -10,7 +10,7 @@ class RegisterAndLogin extends Component {
   render() {
     
     return (
-      <div id="register-login-center" >
+      <div id="register-login-center"  className="login-register">
         <div className="panel-heading">
           <div className="row">
             <div className="col-md-6 ">

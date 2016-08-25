@@ -1,4 +1,4 @@
-function reducer(state = {registerState: ''}, action) {
+function reducer(state = {registerState:''}, action) {
   switch (action.type) {
     case 'REGISTER_COMMIT':
       return {registerState: action.value};

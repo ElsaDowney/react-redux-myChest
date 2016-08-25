@@ -5,16 +5,17 @@ const mongoClient = require('../../server/helpers/mongodb');
 describe('server', () => {
   let server;
 
-  beforeEach(function (done) {
+  beforeEach((done)=> {
     mongoClient.connect(url, (err, db)=> {
       const collection = db.collection('users');
-      collection.removeMany({},()=>{
-        collection.insert([{_id:0,
-          userName:"xiaopangzhu",
-          password:"123456",
-          clo_list:[
-            {c_id:0,season:"summer",color:"red",sort:"coat",style:"fashion",image:"0",matches:[]},
-            {c_id:1,season:"summer",color:"yellow",sort:"coat",style:"fashion",image:"1",matches:[]},
+      collection.removeMany({}, ()=> {
+        collection.insert([{
+          _id: 0,
+          userName: "xiaopangzhu",
+          password: "123456",
+          clo_list: [
+            {c_id: 0, season: "summer", color: "red", sort: "coat", style: "fashion", image: "0", matches: []},
+            {c_id: 1, season: "summer", color: "yellow", sort: "coat", style: "fashion", image: "1", matches: []},
           ]
         }], (err, result)=> {
         });
@@ -25,10 +26,10 @@ describe('server', () => {
     server = require('../../server');
   });
 
-  it('return matchSucced clothes of /clothes/match', function testPath(done) {
+  it('response /clothes/match and return matchSucceed clothes', (done) => {
     request(server)
-      .post('/clothes/match')
-      .send([0,1])
+      .post('/clothes/matches')
+      .send([0, 1])
       .expect(200, done);
   });
 });

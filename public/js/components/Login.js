@@ -1,9 +1,32 @@
 import React, {Component} from 'react'
 
 class Login extends Component {
-
+onSubmit(){
+  const name=this.refs.name.value;
+  const password=this.refs.password.value;
+  this.props.submit(name,password);
+}
   render() {
-    return <div>登录</div>
+    if(this.props.isLogin==='success'){
+      alert('登录成功');
+    }
+    else if(this.props.isLogin==='fail'){
+      alert('登录失败');
+    }
+    return <div>
+      <div className="usersName">
+        <input type="text" ref="name" className="form-control "
+               placeholder="请输入用户名"/>
+      </div>
+      <br/>
+      <div className="password">
+        <input type="password" className="form-control" ref="password"
+                placeholder="请输入密码"/>
+      </div>
+      <div className="buttonCenter">
+      <button　className="btn btn-default" onClick={this.onSubmit.bind(this)}>登录</button>
+        </div>
+    </div>
   }
 }
 
