@@ -11,6 +11,21 @@ class ClothesTypeToTig extends Component {
     $("input:not(:checked)").parent().siblings(".img-wrap").css("display", "none");
   }
 
+  mouseOver() {
+    $('.imgage').mouseover(function () {
+      $(this).next().css("opacity", 0.7);
+    });
+    $('.delete-wrap').mouseover(function () {
+      $(this).css("opacity", 0.7);
+    });
+  }
+
+  mouseOut() {
+    $('.imgage').mouseout(function () {
+      $(this).next().css("opacity", 0);
+    });
+  }
+
   render() {
     const sectionClothes = this.props.clothes.allSections.map((section, index) => {
       const imgUrl = `../../images/image${section.image}.jpg`;

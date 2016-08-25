@@ -13,5 +13,5 @@ exports.toLogin = function (data, callback) {
       callback(result);
     });
     db.close();
-  })
+  });
 };

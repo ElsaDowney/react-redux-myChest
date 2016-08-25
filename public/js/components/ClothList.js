@@ -8,21 +8,6 @@ class ClothList extends Component {
     this.props.getClothes();
   }
 
-  mouseOver() {
-    $('.imgage').mouseover(function () {
-      $(this).next().css("opacity", 0.7);
-    });
-    $('.delete-wrap').mouseover(function () {
-      $(this).css("opacity", 0.7);
-    });
-  }
-
-  mouseOut() {
-    $('.imgage').mouseout(function () {
-      $(this).next().css("opacity", 0);
-    });
-  }
-
   findClothesType(type, clothes) {
     return clothes.find(item => item.sort === type);
   }

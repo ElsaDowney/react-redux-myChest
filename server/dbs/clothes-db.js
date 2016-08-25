@@ -18,7 +18,7 @@ exports.deleteOneClothes = function(userName, c_id, callback) {
     collection.update({userName: userName}, {$pull: {"clo_list": {c_id: parseInt(c_id)}}}, (err, result)=> {
       this.getAllClothes(userName, (result) => {
         callback(result);
-      })
+      });
     });
     db.close();
   });
