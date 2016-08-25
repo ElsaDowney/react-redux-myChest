@@ -3,7 +3,6 @@ const express = require('express');
 const router = express.Router();
 
 router.post('/clothes/matches', (req, res)=> {
-  console.log(req.body)
   const userName = "xiaopangzhu";
   const matches = req.body;
   const c_id1 = parseInt(matches[0]);

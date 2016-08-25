@@ -1,4 +1,4 @@
-function getAllMatches(allColthes) {
+const getAllMatches=(allColthes)=> {
 
   const show = [];
   allColthes.map((clothes)=> {
@@ -22,6 +22,6 @@ function getAllMatches(allColthes) {
     }
   });
   return show;
-}
+};
 
-module.exports = getAllMatches;
+export default getAllMatches;

@@ -19,7 +19,7 @@ import SaveAdd from './middlewares/save-add-middleware';
 import login from './middlewares/login';
 import register from './middlewares/register';
 
-import matchList from "./middlewares/matchList";
+import matchList from "./middlewares/match-list"
 
 const createStoreWithMiddleware = applyMiddleware(registerLogin,
   register, login, clothes, matchList, ImageUpload, SaveAdd)(createStore);

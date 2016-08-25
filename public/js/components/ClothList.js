@@ -1,26 +1,11 @@
 import React, {Component} from "react";
-import ClothesTypeToTig from './ClothesType-toTig';
+import ClothesTypeToTag from './ClothesTypeToTag';
 import {browserHistory} from 'react-router';
 const Link = require('react-router').Link;
 
 class ClothList extends Component {
   componentDidMount() {
     this.props.getClothes();
-  }
-
-  mouseOver() {
-    $('.imgage').mouseover(function () {
-      $(this).next().css("opacity", 0.7);
-    });
-    $('.delete-wrap').mouseover(function () {
-      $(this).css("opacity", 0.7);
-    });
-  }
-
-  mouseOut() {
-    $('.imgage').mouseout(function () {
-      $(this).next().css("opacity", 0);
-    });
   }
 
   findClothesType(type, clothes) {
@@ -46,7 +31,7 @@ class ClothList extends Component {
     });
     this.props.onConfirm(matches);
     alert("搭配成功");
-    browserHistory.push('/Home');
+    browserHistory.push('/MatchList');
   }
 
   getClothesWithClass(clothes) {
@@ -54,13 +39,13 @@ class ClothList extends Component {
     clothes.map(cloth => {
       const element = this.findClothesType(cloth.sort, clothesWithClass);
       if (element) {
-        element.allSections.push(cloth)
+        element.sections.push(cloth)
       } else {
         const clothesObj = {};
         const arr = [];
         arr.push(cloth);
         clothesObj.sort = cloth.sort;
-        clothesObj.allSections = arr;
+        clothesObj.sections = arr;
         clothesWithClass.push(clothesObj);
       }
     });
@@ -70,7 +55,7 @@ class ClothList extends Component {
   render() {
     const clothesWithClass = this.getClothesWithClass(this.props.clothes);
     const clothes = clothesWithClass.map(clothes => {
-      return <ClothesTypeToTig clothes={clothes}
+      return <ClothesTypeToTag clothes={clothes}
                                onRemove={this.props.onRemove}
                                onConfirm={this.props.onConfirm}/>;
     });
