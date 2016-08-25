@@ -1,9 +1,9 @@
-const matches = require('../../public/js/components/getAllMatches');
+const matches = require('../../public/js/functions/getAllMatches');
 const expect = require('chai').expect;
 
-describe('reducer', function () {
+describe('build match array', function () {
 
-  it('get', function () {
+  it('return a new array of the successful change', function () {
     const allMatches = [
       {c_id: 0, season: "summer", color: "red", sort: "coat", style: "fashion", image: "0", matches: [3, 4]},
       {c_id: 1, season: "summer", color: "yellow", sort: "coat", style: "fashion", image: "1", matches: []},

@@ -2,7 +2,7 @@ const request = require('supertest');
 const url = require('../../server/helpers/get-url');
 const mongoClient = require('../../server/helpers/mongodb');
 
-describe('server', () => {
+describe('get users from dbs', () => {
   let server;
   beforeEach(function (done) {
     mongoClient.connect(url, (err, db)=> {

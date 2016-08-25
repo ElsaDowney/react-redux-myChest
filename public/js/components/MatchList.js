@@ -1,6 +1,6 @@
 
 import React, {Component} from "react";
-const getAllMatches = require('./getAllMatches');
+const getAllMatches = require('../functions/getAllMatches');
 
 
 class MatchList extends Component{
