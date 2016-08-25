@@ -54,7 +54,7 @@ class Register extends Component {
                onChange={this.judgeUserName.bind(this)}
                id="user" placeholder="请输入用户名"/>
 
-        <p id="p1">亲,用户名长度应不小于2位!</p>
+        <p id="p1"  className="registerRemark">亲,用户名长度应不小于2位!</p>
 
       </div>
       <br/>
@@ -62,7 +62,7 @@ class Register extends Component {
         <input type="password" className="form-control" ref="myPassword"
                onClick={this.judgePassword.bind(this)}
                id="password" placeholder="请输入密码"/>
-        <p id="p2">亲,密码应为6到12位!</p>
+        <p id="p2" className="registerRemark">亲,密码应为6到12位!</p>
 
       </div>
       <br/>
