@@ -2,13 +2,14 @@ const express = require('express');
 
 const router = express.Router();
 
-const AllMatches = require('../dbs/match-list');
-
+const allMatches = require('../dbs/match-list');
+const getMatches=require('../../public/js/functions/getAllMatches')
 
 router.get('/match', (req, res)=> {
   const userName = 'xiaopangzhu';
-  AllMatches(userName,  (result)=> {
-    res.json(result).end();
+  allMatches(userName,  (result)=> {
+    const matches=getMatches(result.clo_list)
+    res.json(matches).end();
   });
 });
 

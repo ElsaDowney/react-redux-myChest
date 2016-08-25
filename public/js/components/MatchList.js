@@ -1,21 +1,14 @@
 
 import React, {Component} from "react";
-const getAllMatches =require('../functions/getAllMatches');
 
+class Match extends Component{
 
-class MatchList extends Component{
+  render(){
+    const up = `../../images/image${this.props.match.up.imgUp}.jpg`;
+    const down = `../../images/image${this.props.match.down.imgDown}.jpg`;
 
-  componentDidMount(){
-    const userName = 'xiaopangzhu';
-    this.props.onMatch(userName);
-  }
-
-  getStyle(clothes, index) {
-    const up = `../../images/image${clothes.up.imgUp}.jpg`;
-    const down = `../../images/image${clothes.down.imgDown}.jpg`;
-
-    return <div className="totalTop" key={index}>
-      <form key={index} className="col-sm-6 col-md-3 ">
+    return <div className="totalTop" key={this.props.index}>
+      <form key={this.props.index} className="col-sm-6 col-md-3 ">
         <div ><img className="img-thumbnail photoTop" src={up}
                    alt="通用的占位符缩略图"/>
         </div>
@@ -25,14 +18,23 @@ class MatchList extends Component{
       </form>
     </div>
   }
+}
+
+class MatchList extends Component{
+
+  componentDidMount(){
+    const userName = 'xiaopangzhu';
+    this.props.onMatch(userName);
+  }
+
 
   render() {
     let allMatches;
-    if (getAllMatches(this.props.matches).length === 0) {
+    if (this.props.matches.length === 0) {
       allMatches = <p className="font-center">还没有匹配衣服</p>;
     } else {
-      allMatches = getAllMatches(this.props.matches).map((cloth, index)=> {
-        return this.getStyle(cloth, index);
+      allMatches = this.props.matches.map((match, index)=> {
+        return <Match match={match} index={index}/>;
       });
     }
     return <div className="container  top  wrap-colthes matchesbackground">
