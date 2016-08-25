@@ -7,10 +7,13 @@ router.use(session({secret: 'ssshhhhh'}));
 
   let sess;
 router.post('/sessions', (req, res)=> {
-
-   const data = {name: req.body.name, password: req.body.password};
-
+  /*console.log(req.body);
+  console.log(req.body.name+'name');
+  console.log(req.body.userName+'userName');*/
+   const data = {userName: req.body.userName, password: req.body.password};
+    //console.log(req.body.userName+'---'+req.body.password);
   login.toLogin(data, function (result) {
+    //console.log(result);
     if (result) {
       sess=req.session;
       sess.userName = result.userName;
