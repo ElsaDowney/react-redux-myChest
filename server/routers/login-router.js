@@ -12,11 +12,8 @@ router.post('/sessions', (req, res)=> {
 
   login.toLogin(data, function (result) {
     if (result) {
-     // console.log(result);
-     // console.log(result.username);
       sess=req.session;
       sess.username = result.username;
-    //  console.log(req.session.username);
       res.json({value: 'success'});
     }
     else {
