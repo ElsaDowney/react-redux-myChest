@@ -13,7 +13,7 @@ exports.getAllClothes = (userName, callback) => {
 
 
 
-exports.deleteOneClothes = function (userName, c_id) {
+exports.deleteOneClothes = function (userName, c_id,callback) {
   MongoClient.connect(url, (err, db)=> {
     const collection = db.collection('users');
     collection.update({userName: userName}, {$pull: {"clo_list": {c_id: parseInt(c_id)}}}, (err, result)=> {
