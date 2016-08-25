@@ -5,7 +5,7 @@ const mongoClient = require('../../server/helpers/mongodb');
 describe('server', () => {
   let server;
 
-  beforeEach(function (done) {
+  beforeEach((done)=> {
     mongoClient.connect(url, (err, db)=> {
       const collection = db.collection('users');
       collection.removeMany({}, ()=> {
@@ -24,16 +24,16 @@ describe('server', () => {
 
   it('return fail to show user exist', function testPath(done) {
     request(server)
-      .post('/user')
+      .post('/users')
       .send({userName: '3q', password: '123456'})
-      .expect(200, {value: 'fail'}, done);
+      .expect(400, {value: 'fail'}, done);
   });
 
   it('return success to show register successfully', function testPath(done) {
     request(server)
-      .post('/user')
+      .post('/users')
       .send({userName: '111', password: '123456'})
-      .expect(200, {value: 'success'}, done);
+      .expect(201, {value: 'success'}, done);
   });
 });
 
