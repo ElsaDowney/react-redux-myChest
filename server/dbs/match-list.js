@@ -2,7 +2,7 @@ const url = require('../helpers/get-url');
 const MongoClient = require('../helpers/mongodb');
 
 
-function AllMatches(userName,callback){
+const AllMatches=(userName,callback)=>{
 
   MongoClient.connect(url, function (err, db) {
     const collection=db.collection('users');
@@ -10,7 +10,7 @@ function AllMatches(userName,callback){
       callback(docs);
     });
   });
-}
+};
 
 module.exports=AllMatches;
 

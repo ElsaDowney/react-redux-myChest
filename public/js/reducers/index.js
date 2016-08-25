@@ -1,6 +1,6 @@
 const combineReducers = require('redux').combineReducers;
 const clothesReducer = require('./clothes');
-const matchListReducer = require('./matchList-reducer');
+import matchListReducer from './match-list-reducer';
 const registerAndLogin=require('./register-login');
 const  registerReducer=require('./register');
 import login from "./login";

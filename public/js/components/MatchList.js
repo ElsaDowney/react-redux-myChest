@@ -1,6 +1,6 @@
 
 import React, {Component} from "react";
-const getAllMatches = require('../functions/getAllMatches');
+import getAllMatches from '../functions/getAllMatches';
 
 
 class MatchList extends Component{
@@ -11,8 +11,8 @@ class MatchList extends Component{
   }
 
   getStyle(clothes, index) {
-    const up = `../../images/${clothes.up.imgUp}.jpg`;
-    const down = `../../images/${clothes.down.imgDown}.jpg`;
+    const up = `../../images/image${clothes.up.imgUp}.jpg`;
+    const down = `../../images/image${clothes.down.imgDown}.jpg`;
 
     return <div className="totalTop" key={index}>
       <form key={index} className="col-sm-6 col-md-3 ">
