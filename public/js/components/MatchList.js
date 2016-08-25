@@ -1,6 +1,6 @@
 
 import React, {Component} from "react";
-import getAllMatches from '../functions/getAllMatches';
+const getAllMatches =require('../functions/getAllMatches');
 
 
 class MatchList extends Component{
@@ -28,10 +28,10 @@ class MatchList extends Component{
 
   render() {
     let allMatches;
-    if (getAllMatches(this.props.user).length === 0) {
+    if (getAllMatches(this.props.matches).length === 0) {
       allMatches = <p className="font-center">还没有匹配衣服</p>;
     } else {
-      allMatches = getAllMatches(this.props.user).map((cloth, index)=> {
+      allMatches = getAllMatches(this.props.matches).map((cloth, index)=> {
         return this.getStyle(cloth, index);
       });
     }

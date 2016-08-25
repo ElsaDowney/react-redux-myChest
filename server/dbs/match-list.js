@@ -2,16 +2,16 @@ const url = require('../helpers/get-url');
 const MongoClient = require('../helpers/mongodb');
 
 
-const AllMatches=(userName,callback)=>{
+const allMatches=(userName,callback)=>{
 
-  MongoClient.connect(url, function (err, db) {
+  MongoClient.connect(url, (err, db)=> {
     const collection=db.collection('users');
-    collection.findOne({userName:userName},function(err,docs){
+    collection.findOne({userName:userName},(err,docs)=>{
       callback(docs);
     });
   });
 };
 
-module.exports=AllMatches;
+module.exports=allMatches;
 
 

@@ -5,13 +5,13 @@ import {connect} from 'react-redux';
 
 
 function mapStateToProps(state) {
-  return {user:state.matchListReducer.user};
+  return {matches:state.matchListReducer.matches};
 }
 
 function mapDispatchToProps(dispatch) {
   return {
     onMatch:(userName)=>{
-      dispatch({type:'Match',userName});
+      dispatch({type:'GET_MATCH',userName});
     }
   }
 }

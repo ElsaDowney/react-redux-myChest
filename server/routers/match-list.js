@@ -4,9 +4,10 @@ const router = express.Router();
 
 const AllMatches = require('../dbs/match-list');
 
+
 router.get('/match', (req, res)=> {
   const userName = 'xiaopangzhu';
-  AllMatches(userName, function (result) {
+  AllMatches(userName,  (result)=> {
     res.json(result).end();
   });
 });

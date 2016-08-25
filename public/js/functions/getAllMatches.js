@@ -1,7 +1,6 @@
-const getAllMatches=(allColthes)=> {
-
+function getAllMatches(AllClothes) {
   const show = [];
-  allColthes.map((clothes)=> {
+  AllClothes.map((clothes)=> {
     if (clothes.sort === "coat") {
       clothes.matches.map((match)=> {
         show.push(
@@ -14,7 +13,7 @@ const getAllMatches=(allColthes)=> {
     }
   });
   show.map((cloth)=> {
-    const a = allColthes.find(i=>i.c_id === cloth.down.id);
+    const a = AllClothes.find(i=>i.c_id === cloth.down.id);
     if (a) {
       cloth.down.id = a.c_id;
       cloth.down.imgDown = a.image;
@@ -24,4 +23,4 @@ const getAllMatches=(allColthes)=> {
   return show;
 };
 
-export default getAllMatches;
+module.exports=getAllMatches;

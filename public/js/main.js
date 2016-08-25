@@ -11,7 +11,7 @@ import ClothForm from './containers/ClothFrom'
 
 import Home from "./components/Home";
 import RegisterAndLogin from './containers/RegisterAndLogin';
-import MatchList from './containers/matchList'
+import MatchList from './containers/MatchList'
 import registerLogin from './middlewares/register-login';
 import ImageUpload from './middlewares/image-upload'
 import SaveAdd from './middlewares/save-add-middleware'
