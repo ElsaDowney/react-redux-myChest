@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 var Link = require('react-router').Link;
 
-class Nav extends Component{
+class Nav extends Component {
   render() {
     return (
       <div className="navbar-wrapper ">
@@ -21,7 +21,7 @@ class Nav extends Component{
                 <ul className="nav navbar-nav navbar-right">
                   <li><Link to='RegisterAndLogin'>登陆/注册</Link></li>
                 </ul>
-               </div>
+              </div>
             </div>
           </nav>
 

@@ -1,18 +1,16 @@
 import React, {Component} from 'react'
 
 class Register extends Component {
-
   commit() {
-    const username = this.refs.myName.value;
-    const password = this.refs.myPassword.value;
-    const repeatPassword = this.refs.repeatPassword.value;
-
-    if (username.length >= 2 && (password.length >= 6 && password.length <= 12)) {
-      if (password != repeatPassword) {
+    const userName = this.refs.userName.value;
+    const password = this.refs.password.value;
+    const confirmPassword = this.refs.confirmPassword.value;
+    if (userName.length >= 2 && (password.length >= 6 && password.length <= 12)) {
+      if (password != confirmPassword) {
         alert("哎呀,两次密码不同啦,请重新输入吧");
       }
       else {
-        this.props.onCommit(username, password);
+        this.props.onCommit(userName, password);
       }
     }
     else {
@@ -21,8 +19,8 @@ class Register extends Component {
   }
 
   judgeUserName() {
-    const username = this.refs.myName.value;
-    if (username.length < 2) {
+    const userName = this.refs.userName.value;
+    if (userName.length < 2) {
       $("#p1").show();
     } else {
       $("#p1").hide();
@@ -30,14 +28,13 @@ class Register extends Component {
   }
 
   judgePassword() {
-    const password = this.refs.myPassword.value;
+    const password = this.refs.password.value;
     if (password.length < 6 || password.length > 12) {
       $("#p2").show();
     } else {
       $("#p2").hide();
     }
   }
-
 
   render() {
     if (this.props.registerState === 'success') {
@@ -50,25 +47,21 @@ class Register extends Component {
 
     return <div>
       <div className="user">
-        <input type="text" className="form-control" ref="myName"
+        <input type="text" className="form-control" ref="userName"
                onChange={this.judgeUserName.bind(this)}
-               id="user" placeholder="请输入用户名"/>
-
-        <p id="p1"  className="registerRemark">亲,用户名长度应不小于2位!</p>
-
+               placeholder="请输入用户名"/>
+        <p id="p1" className="registerRemark">亲,用户名长度应不小于2位!</p>
       </div>
       <br/>
       <div className="password form-group">
-        <input type="password" className="form-control" ref="myPassword"
+        <input type="password" className="form-control" ref="password"
                onClick={this.judgePassword.bind(this)}
-               id="password" placeholder="请输入密码"/>
+               placeholder="请输入密码"/>
         <p id="p2" className="registerRemark">亲,密码应为6到12位!</p>
-
       </div>
       <br/>
       <div className="repeatPassword form-group">
-        <input type="password" className="form-control" ref="repeatPassword"
-               id="repeatPassword"
+        <input type="password" className="form-control" ref="confirmPassword"
                placeholder="请再次确认密码"/>
       </div>
       <hr/>
@@ -81,7 +74,6 @@ class Register extends Component {
     </div>
   }
 }
-
 
 export default Register;
 

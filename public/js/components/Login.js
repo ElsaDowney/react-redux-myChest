@@ -11,7 +11,7 @@ onSubmit(){
       alert('登录成功');
     }
     else if(this.props.isLogin==='fail'){
-      alert('登录失败');
+      alert('你输入的密码和账户名不匹配');
     }
     return <div>
       <div className="usersName">
@@ -23,6 +23,7 @@ onSubmit(){
         <input type="password" className="form-control" ref="password"
                 placeholder="请输入密码"/>
       </div>
+      <hr />
       <div className="buttonCenter">
       <button　className="btn btn-default" onClick={this.onSubmit.bind(this)}>登录</button>
         </div>

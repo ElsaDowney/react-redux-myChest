@@ -5,14 +5,13 @@ const mongoClient = require('../../server/helpers/mongodb');
 describe('server', () => {
   let server;
 
-  beforeEach((done)=> {
+  beforeEach((done) => {
     mongoClient.connect(url, (err, db)=> {
       const collection = db.collection('users');
       collection.removeMany({}, ()=> {
         collection.insert([{
-          userName: "3q",
-          password: "123456",
-          clo_list: []
+          userName: "yang",
+          password: "111111",
         }], (err, result)=> {
         });
         db.close();
@@ -22,18 +21,19 @@ describe('server', () => {
     server = require('../../server');
   });
 
-  it('return fail to show user exist', function testPath(done) {
+  it('return success to user login', (done)=>{
     request(server)
-      .post('/users')
-      .send({userName: '3q', password: '123456'})
-      .expect(400, {value: 'fail'}, done);
+      .post('/sessions')
+      .send({userName: 'yang', password: '111111'})
+      .expect(200, {value: 'success'}, done);
   });
 
-  it('return success to show register successfully', function testPath(done) {
+  it('return fail to user login', (done)=>{
     request(server)
-      .post('/users')
-      .send({userName: '111', password: '123456'})
-      .expect(201, {value: 'success'}, done);
+      .post('/sessions')
+      .send({userName: 'yang', password: '111222'})
+      .expect(200, {value: 'fail'}, done);
   });
 });
+
 
