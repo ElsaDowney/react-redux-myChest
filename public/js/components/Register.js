@@ -2,17 +2,18 @@ import React, {Component} from 'react'
 
 class Register extends Component {
 
+
   commit() {
-    const username = this.refs.myName.value;
+    const userName = this.refs.myName.value;
     const password = this.refs.myPassword.value;
     const repeatPassword = this.refs.repeatPassword.value;
 
-    if (username.length >= 2 && (password.length >= 6 && password.length <= 12)) {
+    if (userName.length >= 2 && (password.length >= 6 && password.length <= 12)) {
       if (password != repeatPassword) {
         alert("哎呀,两次密码不同啦,请重新输入吧");
       }
       else {
-        this.props.onCommit(username, password);
+        this.props.onCommit(userName, password);
       }
     }
     else {
@@ -21,13 +22,14 @@ class Register extends Component {
   }
 
   judgeUserName() {
-    const username = this.refs.myName.value;
-    if (username.length < 2) {
+    const userName = this.refs.myName.value;
+    if (userName.length < 2) {
       $("#p1").show();
     } else {
       $("#p1").hide();
     }
   }
+
 
   judgePassword() {
     const password = this.refs.myPassword.value;

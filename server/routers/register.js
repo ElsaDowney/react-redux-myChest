@@ -6,7 +6,7 @@ const router = express.Router();
 router.post('/user', (req, res)=> {
 
   const data = {
-    userName: req.body.username,
+    userName: req.body.userName,
     password: req.body.password,
     clo_list: []
   };
