@@ -13,7 +13,7 @@ router.post('/sessions', (req, res)=> {
   login.toLogin(data, function (result) {
     if (result) {
       sess=req.session;
-      sess.username = result.username;
+      sess.userName = result.userName;
       res.json({value: 'success'});
     }
     else {

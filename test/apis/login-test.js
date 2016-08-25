@@ -10,7 +10,7 @@ describe('server', () => {
       const collection = db.collection('users');
       collection.removeMany({}, ()=> {
         collection.insert([{
-          username: "yang",
+          userName: "yang",
           password: "111111",
           clo_list: []
         }], (err, result)=> {
@@ -25,14 +25,14 @@ describe('server', () => {
   /*it('return success to user login', function testPath(done) {
     request(server)
       .post('/sessions')
-      .send({username: 'yang', password: '111111'})
+      .send({userName: 'yang', password: '111111'})
       .expect(200, {value: 'success'}, done);
   });*/
 
   it('return fail to user login', function testPath(done) {
     request(server)
       .post('/sessions')
-      .send({username: 'yang', password: '111222'})
+      .send({userName: 'yang', password: '111222'})
       .expect(200, {value: 'fail'}, done);
   });
 });
