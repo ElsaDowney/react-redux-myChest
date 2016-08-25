@@ -6,6 +6,11 @@ class ClothesTypeToTig extends Component {
     this.props.onRemove(section.c_id);
   }
 
+  addWrap() {
+    $("input:checked").parent().siblings(".img-wrap").css("display", "inline");
+    $("input:not(:checked)").parent().siblings(".img-wrap").css("display", "none");
+  }
+
   render() {
     const sectionClothes = this.props.clothes.allSections.map((section, index) => {
       const imgUrl = `../../images/image${section.image}.jpg`;
@@ -40,6 +45,7 @@ class ClothesTypeToTig extends Component {
         <hr />
         {sectionClothes}
         <hr />
+
       </div>
     )
   }

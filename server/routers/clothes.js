@@ -15,5 +15,11 @@ router.delete("/clothes/:c_id", (req, res)=> {
   });
 });
 
+router.post('/cloth',(req,res) => {
+  clothes.addClothItem('cheng',req.body.cloItem,(result) => {
+    res.status(201).json({value:'添加衣物成功！'});
+  })
+})
+
 
 module.exports = router;

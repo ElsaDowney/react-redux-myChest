@@ -14,6 +14,7 @@ const mapDispatchToProps = (dispatch) => {
       dispatch({type: "GET_CLOTHES"});
     },
     onRemove: (c_id)=>dispatch({type: "DELETE_CLOTH", c_id}),
+    onConfirm:(matches) => dispatch({type:"MATCH_CLOTHES",matches})
   };
 };
 
