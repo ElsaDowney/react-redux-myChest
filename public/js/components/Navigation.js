@@ -21,7 +21,7 @@ class Nav extends Component{
                 <ul className="nav navbar-nav navbar-right">
                   <li><Link to='RegisterAndLogin'>登陆/注册</Link></li>
                 </ul>
-            it   </div>
+               </div>
             </div>
           </nav>
 
