@@ -10,11 +10,13 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('./public'));
 regRouters(app);
 
+/*
 app.use(session({
   secret: 'nicai',
   resave: true,
   saveUninitialized: true,
 }));
+*/
 
 app.get('*', function (request, response){
   response.sendFile(path.resolve(__dirname, 'public', 'index.html'));
