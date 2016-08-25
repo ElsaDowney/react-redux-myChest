@@ -13,16 +13,16 @@ import Home from "./components/Home";
 import RegisterAndLogin from './containers/RegisterAndLogin';
 import MatchList from './containers/matchList'
 import registerLogin from './middlewares/register-login';
-import ImageUpload from './middlewares/image-upload'
-import SaveAdd from './middlewares/save-add-middleware'
+import ImageUpload from './middlewares/image-upload';
+import SaveAdd from './middlewares/save-add-middleware';
 
 import login from './middlewares/login';
 import register from './middlewares/register';
 
-import matchList from "./middlewares/matchList"
+import matchList from "./middlewares/matchList";
 
-const createStoreWithMiddleware = applyMiddleware(clothes,
-  registerLogin,register,login,matchList,ImageUpload,SaveAdd)(createStore);
+const createStoreWithMiddleware = applyMiddleware(registerLogin,
+  register, login, clothes, matchList, ImageUpload, SaveAdd)(createStore);
 
 
 const store = createStoreWithMiddleware(reducer);

@@ -16,7 +16,7 @@ exports.register = function (data, callback) {
 
   var selectData = function (db, callback) {
     const collection = db.collection('users');
-    collection.find({username: data.username}).toArray(function (err, result) {
+    collection.find({userName: data.userName}).toArray(function (err, result) {
       if (err) {
         console.log('Error:' + err);
         return;
