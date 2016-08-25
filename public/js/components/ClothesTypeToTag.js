@@ -1,7 +1,10 @@
+/**
+ * Created by qmm on 25/08/16.
+ */
 import React, {Component} from 'react';
 const Link = require('react-router').Link;
 
-class ClothesTypeToTig extends Component {
+class ClothesTypeToTag extends Component {
   remove(section) {
     this.props.onRemove(section.c_id);
   }
@@ -11,8 +14,23 @@ class ClothesTypeToTig extends Component {
     $("input:not(:checked)").parent().siblings(".img-wrap").css("display", "none");
   }
 
+  mouseOver() {
+    $('.imgage').mouseover(function () {
+      $(this).next().css("opacity", 0.7);
+    });
+    $('.delete-wrap').mouseover(function () {
+      $(this).css("opacity", 0.7);
+    });
+  }
+
+  mouseOut() {
+    $('.imgage').mouseout(function () {
+      $(this).next().css("opacity", 0);
+    });
+  }
+
   render() {
-    const sectionClothes = this.props.clothes.allSections.map((section, index) => {
+    const sectionClothes = this.props.clothes.sections.map((section, index) => {
       const imgUrl = `../../images/image${section.image}.jpg`;
       return (
         <div className="imgSize" key={index}>
@@ -51,4 +69,4 @@ class ClothesTypeToTig extends Component {
   }
 }
 
-export default ClothesTypeToTig;
+export default ClothesTypeToTag;
