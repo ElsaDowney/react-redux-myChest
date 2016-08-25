@@ -4,7 +4,6 @@ import Login from "../components/Login";
 
 
 const mapStateToProps = (state)=> {
-  // console.log('state:::'+state.login.isLogin);
   console.log(state);
   return {
     isLogin:state.login.isLogin
@@ -14,7 +13,6 @@ const mapStateToProps = (state)=> {
 const mapDispatchToProps = (dispatch) => {
   return{
       submit:(name,password)=>{
-        // console.log(name);
         dispatch({type:'LOGIN',name,password})
       }
   };
