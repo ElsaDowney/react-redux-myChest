@@ -4,14 +4,18 @@ import {connect} from 'react-redux';
 
 
 function mapStateToProps(state) {
+
   return {matches:state.matchListReducer.matches};
 }
 
 function mapDispatchToProps(dispatch) {
+
   return {
-    onMatch:(userName)=>{
+
+    onMatch:(userName) => {
       dispatch({type:'GET_MATCH',userName});
     }
+
   }
 }
 

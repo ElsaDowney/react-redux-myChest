@@ -1,8 +1,7 @@
-
-const matchList= (state = {matches: []},action)=> {
+const matchList = (state = {matches: []}, action)=> {
   switch (action.type) {
     case 'SET_MATCH':
-      return {matches:action.matches};
+      return {matches: action.matches};
   }
   return state;
 };

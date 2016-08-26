@@ -1,9 +1,8 @@
-
 import React, {Component} from "react";
 
-class Match extends Component{
+class Match extends Component {
 
-  render(){
+  render() {
     const up = `../../images/image${this.props.match.up.imgUp}.jpg`;
     const down = `../../images/image${this.props.match.down.imgDown}.jpg`;
 
@@ -20,9 +19,9 @@ class Match extends Component{
   }
 }
 
-class MatchList extends Component{
+class MatchList extends Component {
 
-  componentDidMount(){
+  componentDidMount() {
     const userName = 'xiaopangzhu';
     this.props.onMatch(userName);
   }
@@ -30,6 +29,7 @@ class MatchList extends Component{
 
   render() {
     let allMatches;
+
     if (this.props.matches.length === 0) {
       allMatches = <p className="font-center">还没有匹配衣服</p>;
     } else {
